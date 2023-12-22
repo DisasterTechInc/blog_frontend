@@ -1,0 +1,60 @@
+/////////////////////////
+// Mixins
+/////////////////////////
+
+@mixin font__size($fontsize) {
+    font-size: $fontsize !important;
+    font-size: calculateRem($fontsize) !important;
+}
+
+@mixin line__height($lineheight) {
+    line-height: $lineheight !important;
+    line-height: calculateRem($lineheight) !important;
+}
+
+@mixin heading($fontSize, $lineHeight, $fontWeight) {
+    @include font__size($fontSize);
+    @include line__height($lineHeight);
+    font-weight: $fontWeight;
+}
+
+@mixin radius($radius...) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin translate($translate...) {
+    -webkit-transform: translate($translate);
+    transform: translate($translate);
+}
+
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+@mixin rotate($rotate...) {
+    -webkit-transform: rotate($rotate);
+    transform: rotate($rotate);
+}
+
+@mixin scale($scale...) {
+    -webkit-transform: scale($scale);
+    transform: scale($scale);
+}
+
+@mixin skew($skew...) {
+    -webkit-transform: skew($skew);
+    transform: skew($skew);
+}
+
+@mixin animation($animation...) {
+    -webkit-animation: $animation;
+    animation: $animation;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

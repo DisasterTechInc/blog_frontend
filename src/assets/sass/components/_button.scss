@@ -1,0 +1,229 @@
+/////////////////////////
+// Button
+/////////////////////////
+
+.button {
+    font-family: $font-primary;
+    @include font__size(16px);
+    @include line__height(26px);
+    font-weight: $font-weight--600;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    padding: .75rem 2rem;
+    @include transition($transition);
+    @include radius(.5rem);
+    background: $color-white;
+    color: $color-black;
+
+    &.primary {
+        border-color: $color-brand;
+        background: $color-brand;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-brand;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-brand;
+
+            &:hover {
+                background: $color-brand;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.90) !important;
+        }
+    }
+
+    &.secondary {
+        border-color: rgba($color-white, .35);
+        background: rgba($color-white, .05);
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+        }
+
+        &.reverse {
+            background: transparent;
+
+            &:hover {
+                background: rgba($color-white, .05);
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(19, 16, 34, 0.15) !important;
+        }
+    }
+
+    &.accent {
+        border-color: $color-accent;
+        background: $color-accent;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-accent;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-accent;
+
+            &:hover {
+                background: $color-accent;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(217, 70, 239, 0.90) !important;
+        }
+    }
+
+    &.success {
+        border-color: $color-success;
+        background: $color-success;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-success;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-success;
+
+            &:hover {
+                background: $color-success;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(34, 197, 94, 0.90) !important;
+        }
+    }
+
+    &.error {
+        border-color: $color-error;
+        background: $color-error;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-error;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-error;
+
+            &:hover {
+                background: $color-error;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(239, 68, 68, 0.90) !important;
+        }
+    }
+
+    &.warning {
+        border-color: $color-warning;
+        background: $color-warning;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-warning;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-warning;
+
+            &:hover {
+                background: $color-warning;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(255, 186, 8, 0.90) !important;
+        }
+    }
+
+    &.info {
+        border-color: $color-info;
+        background: $color-info;
+        color: $color-white;
+
+        &:hover {
+            background: transparent;
+            color: $color-info;
+        }
+
+        &.reverse {
+            background: transparent;
+            color: $color-info;
+
+            &:hover {
+                background: $color-info;
+                color: $color-white;
+            }
+        }
+
+        &.shadow {
+            box-shadow: 0px 8px 18px -8px rgba(76, 130, 247, 0.90) !important;
+        }
+    }
+
+    &.link {
+        border: none;
+        padding: 0 !important;
+        background: none;
+        color: $color-brand;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &.md {
+        @include font__size(14px);
+        @include line__height(22px);
+        padding: .625rem 1.75rem;
+        @include radius(.375rem);
+    }
+
+    &.sm {
+        @include font__size(14px);
+        @include line__height(18px);
+        padding: .5rem 1.25rem;
+        @include radius(.25rem);
+    }
+
+    &.square {
+        @include radius(0px);
+    }
+
+    &.pill {
+        @include radius(2.5rem);
+    }
+}

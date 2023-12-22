@@ -1,0 +1,23 @@
+/////////////////////////
+// Reset
+/////////////////////////
+
+* {
+  outline: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: $color-brand;
+  color: $color-white;
+}
+
+::selection {
+  background: $color-brand;
+  color: $color-white;
+}
