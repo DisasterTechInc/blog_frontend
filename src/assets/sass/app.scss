@@ -1,0 +1,31 @@
+// Google Font
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+// Node Modules
+@import "~bootstrap/scss/bootstrap";
+
+// PRATUS SASS
+
+// 1. Utilities
+@import 'utilities/variables',
+'utilities/functions',
+'utilities/mixins',
+'utilities/animation';
+
+// 2. Vendors
+
+// 3. Base stuff
+@import 'base/reset',
+'base/typography',
+'base/global';
+
+// 4. Components
+@import 'components/button';
+
+// 5. Layout
+@import 'layout/header',
+'layout/footer',
+'layout/banner';
+
+// 6. Page
+@import 'pages/home';

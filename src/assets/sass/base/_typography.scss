@@ -1,0 +1,84 @@
+/////////////////////////
+// Typography
+/////////////////////////
+
+html {
+  @include font__size(16px);
+}
+
+body {
+  color: rgba($color-white, .7);
+  font-weight: $font-weight--400;
+  font-family: $font-primary;
+  @include font__size(16px);
+  @include line__height(26px);
+}
+
+a {
+  text-decoration: none;
+  color: $color-white;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-brand;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  margin: 0 0 1.5rem;
+  color: $color-white;
+}
+
+h1 {
+  @include heading(40px, 52px, $font-weight--800);
+
+  &.lrg {
+    @include heading(80px, 104px, $font-weight--800);
+  }
+}
+
+h2 {
+  @include heading(32px, 40px, $font-weight--800);
+
+  &.lrg {
+    @include heading(72px, 92px, $font-weight--800);
+  }
+}
+
+h3 {
+  @include heading(28px, 36px, $font-weight--800);
+
+  &.lrg {
+    @include heading(64px, 84px, $font-weight--800);
+  }
+}
+
+h4 {
+  @include heading(24px, 32px, $font-weight--800);
+
+  &.lrg {
+    @include heading(56px, 72px, $font-weight--800);
+  }
+}
+
+h5 {
+  @include heading(20px, 28px, $font-weight--800);
+
+  &.lrg {
+    @include heading(48px, 62px, $font-weight--800);
+  }
+}
+
+h6 {
+  @include heading(16px, 24px, $font-weight--800);
+
+  &.lrg {
+    @include heading(42px, 54px, $font-weight--800);
+  }
+}
