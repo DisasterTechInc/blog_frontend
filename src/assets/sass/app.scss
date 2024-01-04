@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 // Node Modules
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
+@import 'animate.css';
 
-// PRATUS SASS
+// APP SASS
 
 // 1. Utilities
 @import 'utilities/variables',
@@ -20,7 +21,8 @@
 'base/global';
 
 // 4. Components
-@import 'components/button';
+@import 'components/button',
+'components/form';
 
 // 5. Layout
 @import 'layout/header',

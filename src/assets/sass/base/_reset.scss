@@ -21,3 +21,106 @@
   background: $color-brand;
   color: $color-white;
 }
+
+.opacity {
+  &-half {
+    opacity: .5 !important;
+  }
+}
+
+.w-lg-auto {
+  @include media-breakpoint-up(lg) {
+    & {
+      width: auto !important;
+    }
+  }
+}
+
+.w-md-auto {
+  @include media-breakpoint-up(md) {
+    & {
+      width: auto !important;
+    }
+  }
+}
+
+.color-brand {
+  color: $color-brand !important;
+}
+
+.color-black {
+  color: $color-black !important;
+}
+
+.color-white {
+  color: $color-white !important;
+}
+
+.color-accent {
+  color: $color-accent !important;
+}
+
+strong,
+b {
+  font-weight: $font-weight--700;
+}
+
+.weight-200 {
+  font-weight: $font-weight--200 !important;
+}
+
+.weight-300 {
+  font-weight: $font-weight--300 !important;
+}
+
+.weight-400 {
+  font-weight: $font-weight--400 !important;
+}
+
+.weight-500 {
+  font-weight: $font-weight--500 !important;
+}
+
+.weight-600 {
+  font-weight: $font-weight--600 !important;
+}
+
+.weight-700 {
+  font-weight: $font-weight--700 !important;
+}
+
+.weight-800 {
+  font-weight: $font-weight--800 !important;
+}
+
+.text {
+  &-xxl {
+    @include font__size(24px);
+    @include line__height(38px);
+  }
+
+  &-xl {
+    @include font__size(20px);
+    @include line__height(32px);
+  }
+
+  &-l {
+    @include font__size(18px);
+    @include line__height(28px);
+  }
+
+  &-m {
+    @include font__size(16px);
+    @include line__height(26px);
+  }
+
+  &-s {
+    @include font__size(14px);
+    @include line__height(22px);
+  }
+
+  &-xs {
+    @include font__size(12px);
+    @include line__height(20px);
+  }
+}

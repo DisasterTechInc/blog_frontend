@@ -30,5 +30,6 @@ module.exports = {
   ],
   siteMetadata: {
     title: "PRATUS",
+    copyright: `Copyright &copy; 2023 Disaster Technologies Incorporated. All Rights Reserved.`,
   },
 };

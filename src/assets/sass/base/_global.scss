@@ -6,83 +6,57 @@ body {
     background: $gray-900;
 }
 
-// Color
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-.color-brand {
-    color: $color-brand !important;
-}
+    &-main {
+        &>section {
+            padding: 4rem 0;
 
-.color-black {
-    color: $color-black !important;
-}
-
-.color-white {
-    color: $color-white !important;
-}
-
-// Typography
-
-strong,
-b {
-    font-weight: $font-weight--700;
-}
-
-.weight-200 {
-    font-weight: $font-weight--200 !important;
-}
-
-.weight-300 {
-    font-weight: $font-weight--300 !important;
-}
-
-.weight-400 {
-    font-weight: $font-weight--400 !important;
-}
-
-.weight-500 {
-    font-weight: $font-weight--500 !important;
-}
-
-.weight-600 {
-    font-weight: $font-weight--600 !important;
-}
-
-.weight-700 {
-    font-weight: $font-weight--700 !important;
-}
-
-.weight-800 {
-    font-weight: $font-weight--800 !important;
-}
-
-.text {
-    &-xxl {
-        @include font__size(24px);
-        @include line__height(38px);
+            @include media-breakpoint-down(md) {
+                & {
+                    padding: 3rem 0;
+                }
+            }
+        }
     }
 
-    &-xl {
-        @include font__size(20px);
-        @include line__height(32px);
+    &-footer {
+        margin-top: auto;
+    }
+}
+
+// List
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        position: relative;
+
+        &:not(:first-child) {
+            margin-top: .75rem;
+        }
     }
 
-    &-l {
-        @include font__size(18px);
-        @include line__height(28px);
-    }
+    &.checked {
+        li {
+            padding-left: 2rem;
 
-    &-m {
-        @include font__size(16px);
-        @include line__height(26px);
-    }
-
-    &-s {
-        @include font__size(14px);
-        @include line__height(22px);
-    }
-
-    &-xs {
-        @include font__size(12px);
-        @include line__height(20px);
+            &::before {
+                content: "";
+                width: 1.5rem;
+                height: 1.5rem;
+                background: url(../../assets/images/icon__list--check.svg) no-repeat 0 0;
+                background-size: 1.5rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
     }
 }

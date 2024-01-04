@@ -1,3 +1,14 @@
 /////////////////////////
 // Banner
 /////////////////////////
+
+.site-banner {
+    background: url(../../assets/images/bg__banner.png) no-repeat 0 0 / cover;
+    padding: 156px 0 7rem; // Top: 5rem + Header Height
+
+    @include media-breakpoint-down(md) {
+        & {
+            padding: 124px 0 3rem; // Top: 3rem + Header Height
+        }
+    }
+}

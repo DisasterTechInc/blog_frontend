@@ -1,0 +1,115 @@
+/////////////////////////
+// Form
+/////////////////////////
+
+.form {
+    &-control {
+        font-family: $font-primary;
+        @include font__size(16px);
+        @include line__height(26px);
+        font-weight: $font-weight--400;
+        color: $color-white;
+        background: rgba($color-white, .02);
+        @include radius(8px);
+        outline: none;
+        border: solid 1px rgba($color-white, .18);
+        padding: 0.75rem 1rem;
+        height: auto;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        box-shadow: none;
+        transition: $transition;
+
+        &:focus {
+            background: rgba($color-white, .02);
+            border-color: rgba($color-white, .35);
+            color: $color-white;
+            box-shadow: none;
+        }
+
+        &:disabled {
+            background: rgba($color-white, .02);
+            border-color: rgba($color-white, .18);
+            color: rgba($color-white, .7);
+        }
+
+        &::-webkit-input-placeholder {
+            color: rgba($color-white, .4);
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color: rgba($color-white, .4);
+            opacity: 1;
+        }
+
+        &::placeholder {
+            color: rgba($color-white, .4);
+            opacity: 1;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        &.md {
+            @include font__size(14px);
+            @include line__height(22px);
+            padding: .625rem 1rem;
+            @include radius(.375rem);
+        }
+
+        &.sm {
+            @include font__size(14px);
+            @include line__height(18px);
+            padding: .5rem 1rem;
+            @include radius(.25rem);
+        }
+
+        &.success {
+            border-color: $color-success;
+        }
+
+        &.error {
+            border-color: $color-error;
+        }
+    }
+
+    &-label {
+        font-weight: $font-weight--600;
+        color: $color-white;
+        display: block;
+        margin-bottom: .25rem;
+    }
+
+    &-status {
+        @include font__size(12px);
+        @include line__height(20px);
+        font-weight: $font-weight--400;
+        background: rgba($color-white, .12);
+        @include radius(.25rem);
+        padding: 0 .5rem;
+        color: $color-white;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: top;
+        margin-top: .25rem;
+
+        &.success {
+            background: rgba($color-success, .12);
+            color: $color-success;
+        }
+
+        &.error {
+            background: rgba($color-error, .12);
+            color: $color-error;
+        }
+    }
+}
