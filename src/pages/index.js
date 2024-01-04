@@ -28,7 +28,7 @@ export default function Home() {
               className="w-100 d-block mb-4 mb-md-0"
               alt=""
             />
-            <button className="button primary reverse md">Know More</button>
+            <button className="button primary md">Know More</button>
           </Section>
           <Section sectionClass={"pt-0"}>
             <div className="row align-items-center">
