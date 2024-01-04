@@ -1,3 +1,66 @@
 /////////////////////////
 // Home Page
 /////////////////////////
+
+.section {
+    &__intro {
+        .graphics {
+            height: 2.75rem;
+            width: auto;
+
+            @include media-breakpoint-down(md) {
+                & {
+                    height: 1.75rem;
+                }
+            }
+        }
+    }
+
+    &__start-trial {
+        .inner {
+            padding: 7rem;
+            overflow: hidden;
+            position: relative;
+            @include radius(.5rem);
+
+            @include media-breakpoint-down(xl) {
+                & {
+                    padding: 4rem;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding: 1.5rem;
+                }
+            }
+
+            &:before,
+            &:after {
+                content: "";
+                @include radius(50%);
+                opacity: 0.35;
+                filter: blur(150px);
+                background: $gradient;
+                position: absolute;
+                z-index: -1;
+                animation: gradientCircleOpacity 6s ease-in-out infinite both;
+            }
+
+            &:before {
+                width: 380px;
+                height: 380px;
+                left: 0;
+                top: 50%;
+                @include translate(0, -50%);
+            }
+
+            &:after {
+                width: 324px;
+                height: 324px;
+                right: 74px;
+                bottom: -85px;
+            }
+        }
+    }
+}

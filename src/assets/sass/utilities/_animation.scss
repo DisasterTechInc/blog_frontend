@@ -1,3 +1,15 @@
 /////////////////////////
 // Animation
 /////////////////////////
+
+@keyframes gradientCircleOpacity {
+
+    0%,
+    100% {
+        opacity: .35;
+    }
+
+    50% {
+        opacity: .65;
+    }
+}

@@ -1,3 +1,103 @@
 /////////////////////////
 // Footer
 /////////////////////////
+
+.site-footer {
+    padding: 4.5rem 0 4rem;
+
+    @include media-breakpoint-down(md) {
+        & {
+            padding: 3rem 0;
+        }
+    }
+
+    &>.container {
+        &>.row {
+            &:not(:first-child) {
+                padding-top: 4.5rem;
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        padding-top: 3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    a:not(.site-footer__nav a) {
+        color: $color-brand;
+        transition: $transition;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &__logo {
+        display: block;
+        margin-bottom: 2.5rem;
+
+        @include media-breakpoint-down(md) {
+            & {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        img {
+            height: 1.5rem;
+            width: auto;
+        }
+    }
+
+    &__nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &:not(:first-child) {
+            margin-top: 2.5rem;
+
+            @include media-breakpoint-down(md) {
+                & {
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+
+        li {
+            &:not(:first-child) {
+                margin-top: .5rem;
+            }
+
+            a {
+                color: rgba($color-white, .85);
+                transition: $transition;
+
+                &:hover {
+                    color: $color-brand;
+                }
+            }
+        }
+    }
+
+    &__subscribe {
+        margin-top: 2.5rem;
+
+        @include media-breakpoint-down(md) {
+            & {
+                margin-top: 1.5rem;
+            }
+        }
+
+        .form-control {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .button {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+    }
+}
