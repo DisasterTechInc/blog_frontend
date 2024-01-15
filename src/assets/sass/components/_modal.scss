@@ -1,0 +1,53 @@
+/////////////////////////
+// Modal
+/////////////////////////
+
+.modal {
+    &-content {
+        background: $gray-800;
+        border: none;
+        @include radius(0px);
+        box-shadow: none;
+        color: rgba($color-white, .7);
+        position: relative;
+    }
+
+    &-header {
+        border: none;
+        padding: 3rem 3rem 0;
+
+        .btn-close {
+            opacity: 1;
+            position: absolute;
+            right: 3rem;
+            top: 3rem;
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+            width: 20px;
+            height: 20px;
+            background-size: 20px;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    &-title {
+        margin: 0;
+    }
+
+    &-body {
+        padding: 3rem;
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &-footer {
+        padding: 0 3rem 3rem;
+        border: none;
+    }
+}

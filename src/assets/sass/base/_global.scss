@@ -15,8 +15,14 @@ body {
         &>section {
             padding: 4rem 0;
 
+            &.lrg {
+                padding: 8rem 0;
+            }
+
             @include media-breakpoint-down(md) {
-                & {
+
+                &,
+                &.lrg {
                     padding: 3rem 0;
                 }
             }
@@ -27,8 +33,6 @@ body {
         margin-top: auto;
     }
 }
-
-// List
 
 .list {
     list-style: none;
@@ -51,12 +55,36 @@ body {
                 content: "";
                 width: 1.5rem;
                 height: 1.5rem;
-                background: url(../../assets/images/icon__list--check.svg) no-repeat 0 0;
+                background: url(assets/images/icon__list--check.svg) no-repeat 0 0;
                 background-size: 1.5rem;
                 position: absolute;
                 left: 0;
                 top: 0;
             }
         }
+    }
+}
+
+.rating {
+    width: 78px;
+    height: 14px;
+    @include font__size(0px);
+    @include line__height(0px);
+    display: inline-block;
+    vertical-align: top;
+
+    &.outer {
+        background: url(assets/images/icon__star--placeholder.svg) repeat-x 0 0;
+    }
+
+    &.inner {
+        background: url(assets/images/icon__star--fill.svg) repeat-x 0 0;
+        display: block;
+    }
+}
+
+.animate {
+    &__arrow--right {
+        animation: arrowRight 3s linear infinite;
     }
 }

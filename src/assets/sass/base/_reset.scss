@@ -124,3 +124,7 @@ b {
     @include line__height(20px);
   }
 }
+
+.rounded {
+  border-radius: 8px !important;
+}

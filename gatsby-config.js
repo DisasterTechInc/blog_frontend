@@ -12,6 +12,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const path = require("path");
+
 module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
@@ -27,6 +29,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        root: path.join(__dirname, "src"),
+      },
+    },
   ],
   siteMetadata: {
     title: "PRATUS",

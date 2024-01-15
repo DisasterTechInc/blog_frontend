@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { Nav } from "./Nav";
-import Logo from "../assets/images/logo.svg";
-import IconSignIn from "../assets/images/icon__signin.svg";
-import IconSignUp from "../assets/images/icon__user.svg";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import Logo from "assets/images/logo.svg";
+import IconSignIn from "assets/images/icon__signin.svg";
+import IconSignUp from "assets/images/icon__user.svg";
+import { useSiteMetadata } from "hooks/use-site-metadata";
 
 export const Header = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import Logo from "../assets/images/logo.svg";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import Logo from "assets/images/logo.svg";
+import { useSiteMetadata } from "hooks/use-site-metadata";
 
 export const Footer = () => {
   const { title, copyright } = useSiteMetadata();
@@ -16,10 +16,12 @@ export const Footer = () => {
                 <img src={Logo} alt={title} />
               </span>
               <p className="text-s m-0">
-                Proin ipsum pharetra, senectus eget scelerisque varius pretium
-                platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi
-                sit. Non feugiat feugiat egestas nulla nec. Arcu tempus, eget
-                elementum dolor ullamcorper sodales ultrices eros.{" "}
+                Disaster Tech, a veteran-owned public benefit company, offers
+                decision science technologies for situational awareness,
+                intelligence, and crisis management. We provide
+                practitioner-driven, crisis management software for smarter
+                decision making in preparedness and response to ultimately save
+                lives and protect the environment.
               </p>
               <div className="site-footer__subscribe">
                 <label className="form-label text-s">
@@ -45,7 +47,7 @@ export const Footer = () => {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="/">About</Link>
+                      <Link to="/about">About</Link>
                     </li>
                     <li>
                       <Link to="/">Blog</Link>
@@ -54,7 +56,7 @@ export const Footer = () => {
                       <Link to="/">Pricing</Link>
                     </li>
                     <li>
-                      <Link to="/">Contact</Link>
+                      <Link to="/contact">Contact</Link>
                     </li>
                   </ul>
                   <ul className="site-footer__nav">

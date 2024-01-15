@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import IconDropdown from "../assets/images/icon__chevron--down.svg";
+import IconDropdown from "assets/images/icon__chevron--down.svg";
 
 export const Nav = ({ isActive }) => {
   const [dropdowns, setDropdowns] = useState({ blog: false });

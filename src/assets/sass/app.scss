@@ -4,6 +4,8 @@
 // Node Modules
 @import '~bootstrap/scss/bootstrap';
 @import 'animate.css';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 // APP SASS
 
@@ -22,7 +24,9 @@
 
 // 4. Components
 @import 'components/button',
-'components/form';
+'components/form',
+'components/breadcrumb',
+'components/modal';
 
 // 5. Layout
 @import 'layout/header',
@@ -30,4 +34,5 @@
 'layout/banner';
 
 // 6. Page
-@import 'pages/home';
+@import 'pages/home',
+'pages/about';

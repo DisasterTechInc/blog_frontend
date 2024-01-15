@@ -1,0 +1,64 @@
+/////////////////////////
+// Breadcrumb
+/////////////////////////
+
+.breadcrumb {
+    margin: 0;
+    @include font__size(14px);
+    @include line__height(24px);
+    font-weight: $font-weight--700;
+    color: rgba($color-white, 0.50);
+    display: flex;
+    align-items: center;
+    margin: 0 0 2.5rem;
+
+    li {
+        &:not(:first-child) {
+            margin-left: .75rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                background: url(assets/images/icon__chevrons--right.svg) no-repeat 0 0;
+                background-size: 1rem;
+                margin-right: .75rem;
+            }
+        }
+
+        &.active {
+            color: $color-brand;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            color: rgba($color-white, 0.50);
+            @include transition($transition);
+
+            &>svg {
+                margin-right: .25rem;
+                height: 1rem;
+                width: auto;
+
+                path {
+                    fill: rgba($color-white, 0.50);
+                    @include transition($transition);
+                }
+            }
+
+            &:hover {
+                color: $color-white;
+
+                &>svg {
+                    path {
+                        fill: rgba($color-white, 1);
+                    }
+                }
+            }
+        }
+    }
+}

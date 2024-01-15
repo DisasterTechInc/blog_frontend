@@ -3,8 +3,47 @@
 /////////////////////////
 
 .site-banner {
-    background: url(../../assets/images/bg__banner.png) no-repeat 0 0 / cover;
+    // background: url(assets/images/bg__banner.png) no-repeat 0 0 / cover;
     padding: 156px 0 7rem; // Top: 5rem + Header Height
+    position: relative;
+    overflow: hidden;
+
+    .circle {
+        @include radius(50%);
+        opacity: 0.35;
+        filter: blur(150px);
+        background: $gradient;
+        position: absolute;
+        z-index: -1;
+        animation: gradientCircleOpacity 6s ease-in-out infinite both;
+
+        &.leftBottom {
+            left: -251px;
+            bottom: -218px;
+            width: 510px;
+            height: 589px;
+            @include rotate(-22.519deg);
+            opacity: 0.15;
+        }
+
+        &.rightTop {
+            right: -384px;
+            top: -160px;
+            width: 620px;
+            height: 620px;
+            @include rotate(-7.482deg);
+        }
+
+        &.center {
+            left: 30vw;
+            top: 146px;
+            width: 274px;
+            height: 274px;
+            @include rotate(-7.482deg);
+            opacity: .2;
+            background: $color-accent;
+        }
+    }
 
     @include media-breakpoint-down(md) {
         & {
