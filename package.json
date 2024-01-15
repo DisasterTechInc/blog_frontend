@@ -22,8 +22,11 @@
     "gatsby-source-wordpress": "^7.12.3",
     "gatsby-transformer-sharp": "^5.12.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.2",
     "react-dom": "^18.2.0",
-    "sass": "^1.69.5"
+    "react-slick": "^0.29.0",
+    "sass": "^1.69.5",
+    "slick-carousel": "^1.8.1"
   },
   "repository": {
     "type": "git",
@@ -31,5 +34,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.9"
   }
 }

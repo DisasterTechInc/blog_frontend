@@ -1,0 +1,185 @@
+/////////////////////////
+// About Page
+/////////////////////////
+
+.site-about {
+    .section {
+        &__banner {
+            .row .row {
+                [class*="col-"] {
+                    &:not(:first-child, :last-child) {
+                        margin-top: 4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section {
+    &__staff-map {
+        text-align: center;
+    }
+
+    &__our-team {
+        .row {
+            .member {
+                .avatar {
+                    position: relative;
+                    background: $color-brand;
+                    @include radius(.5rem);
+                    overflow: hidden;
+                    margin-bottom: 1rem;
+
+                    &>img {
+                        @include transition($transition);
+                        width: 100%;
+                        display: block;
+                    }
+
+                    .button {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        @include translate(-50%, -50%);
+                        opacity: 0;
+                        @include transition($transition);
+                        border-color: $color-white;
+                        box-shadow: $shadow-lg;
+                    }
+                }
+
+
+                &:hover {
+                    .avatar {
+                        &>img {
+                            opacity: .65;
+                            filter: blur(1px);
+                            @include scale(1.1, 1.1);
+                        }
+
+                        .button {
+                            animation: teamBioButton .3s linear;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__testimonials {
+        .block {
+            padding: 1.375rem .75rem 0;
+
+            .content {
+                @include radius(.5rem);
+                background: rgba($color-white, .04);
+                padding: 3rem 1.5rem 1.5rem;
+                font-weight: $font-weight--700;
+                margin-bottom: 1.5rem;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    width: 44px;
+                    height: 44px;
+                    position: absolute;
+                    left: 1.5rem;
+                    top: -22px;
+                    background: $color-brand url(assets/images/icon__quote.svg) no-repeat center;
+                    box-shadow: $shadow-button;
+                    @include radius(6px);
+                }
+
+                .rating {
+                    &.outer {
+                        margin-top: 3rem;
+                    }
+                }
+            }
+
+            .author {
+                display: flex;
+                align-items: center;
+
+                &>img {
+                    width: 3rem;
+                    height: 3rem;
+                    @include radius(50%);
+                }
+            }
+        }
+
+        .control {
+            display: flex;
+            align-items: center;
+            margin-top: 5rem;
+
+            .button {
+                &:not(:first-child) {
+                    margin-left: 1rem;
+                }
+
+                width: 2.25rem;
+                height: 2.25rem;
+                @include radius(50%);
+                background: rgba($color-white, .04);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 1.25rem;
+                    width: 1.25rem;
+                }
+
+                &:hover {
+                    background: rgba($color-brand, 1);
+                }
+            }
+        }
+    }
+
+    &__work-with-us {
+        .inner {
+            background: rgba($color-white, .04);
+            padding: 5rem;
+        }
+    }
+
+    &__stats {
+        background: rgba($color-white, .04);
+
+        .block {
+            background: rgba($color-white, .04);
+            @include radius(.5rem);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .logos {
+            padding-top: 5rem;
+            align-items: center;
+
+            [class*="col-"] {
+                text-align: center;
+
+                img {
+                    max-width: 90%;
+                    height: auto;
+                    opacity: .6;
+                    @include transition($transition);
+                }
+            }
+
+            [class*="col-"] {
+                &:hover {
+                    &>img {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

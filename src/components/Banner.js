@@ -1,5 +1,5 @@
 import * as React from "react";
-import Graphics from "../assets/images/graphics__banner.png";
+import Graphics from "assets/images/graphics__banner.png";
 
 export default function Banner() {
   return (
@@ -25,6 +25,9 @@ export default function Banner() {
             </div>
           </div>
         </div>
+        <span className="circle leftBottom"></span>
+        <span className="circle rightTop"></span>
+        <span className="circle center"></span>
       </section>
     </>
   );
