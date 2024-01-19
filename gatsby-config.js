@@ -20,6 +20,10 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        schema: {
+          requestConcurrency: 5, // Lower to reduce load
+          timeout: 3000,        // Increase timeout
+        },
         url: process.env.WPGRAPHQL_URL,
         html: {
           useGatsbyImage: true,
