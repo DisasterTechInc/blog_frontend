@@ -29,10 +29,15 @@ export default function Blog({ data }) {
     productUpdates: false,
   });
 
-  const favorites = sessionStorage.getItem("favorites");
-  const filteredFavorites = JSON.parse(favorites);
+  const [favPosts, setFavPosts] = useState([]);
 
-  const [favPosts, setFavPosts] = useState(filteredFavorites);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const favorites = sessionStorage.getItem("favorites");
+      const filteredFavorites = JSON.parse(favorites);
+      setFavPosts(filteredFavorites);
+    }
+  }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -492,6 +497,7 @@ export default function Blog({ data }) {
                   type="email"
                   className="md flex-grow-1"
                   placeholder="Your Email"
+                  readOnly
                 />
                 <AppButton className="md primary flex-shrink-0 ms-3">
                   Subscribe *

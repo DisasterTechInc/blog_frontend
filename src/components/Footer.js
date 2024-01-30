@@ -34,6 +34,7 @@ export const Footer = () => {
                     type="email"
                     className="md"
                     placeholder="Your Email"
+                    readOnly
                   />
                   <AppButton type="submit" className="md primary">
                     Subscribe

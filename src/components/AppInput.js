@@ -7,6 +7,7 @@ export const AppInput = ({
   disabled,
   readOnly,
   placeholder,
+  onChange,
   ...props
 }) => {
   return (
@@ -17,6 +18,7 @@ export const AppInput = ({
       disabled={disabled}
       readOnly={readOnly}
       placeholder={placeholder || "Enter a value"}
+      onChange={onChange}
       {...props}
     />
   );

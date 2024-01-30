@@ -11,10 +11,15 @@ export default function BlogPost({ data, pageContext }) {
   const [postDetailsData, setPostDetailsData] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
 
-  const favorites = sessionStorage.getItem("favorites");
-  const filteredFavorites = JSON.parse(favorites);
+  const [favPosts, setFavPosts] = useState([]);
 
-  const [favPosts, setFavPosts] = useState(filteredFavorites);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const favorites = sessionStorage.getItem("favorites");
+      const filteredFavorites = JSON.parse(favorites);
+      setFavPosts(filteredFavorites);
+    }
+  }, []);
 
   useEffect(() => {
     const filterPost = allPosts.filter((post) => post.id === pageContext?.id);
