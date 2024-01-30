@@ -28,6 +28,14 @@
   }
 }
 
+.w-xl-auto {
+  @include media-breakpoint-up(xl) {
+    & {
+      width: auto !important;
+    }
+  }
+}
+
 .w-lg-auto {
   @include media-breakpoint-up(lg) {
     & {
@@ -127,4 +135,14 @@ b {
 
 .rounded {
   border-radius: 8px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+hr {
+  border-top-color: rgba($color-white, .15);
+  opacity: 1;
+  margin: 1.5rem 0;
 }

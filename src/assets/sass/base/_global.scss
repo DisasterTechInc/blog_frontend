@@ -10,6 +10,17 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 124px;
+
+    &.site-home {
+        padding-top: 0;
+    }
+
+    @include media-breakpoint-down(xl) {
+        & {
+            padding-top: 98px;
+        }
+    }
 
     &-main {
         &>section {

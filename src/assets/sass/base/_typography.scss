@@ -83,7 +83,7 @@ h3 {
       @include heading(24px, 32px, $font-weight--800);
 
       &.lrg {
-        @include heading(44px, 52px, $font-weight--800);
+        @include heading(32px, 42px, $font-weight--800);
       }
     }
   }

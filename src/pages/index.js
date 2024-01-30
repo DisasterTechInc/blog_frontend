@@ -8,6 +8,7 @@ import GraphicsCrypto from "assets/images/graphics__home-page__section-crypto.pn
 import GraphicsVideo from "assets/images/graphics__home-page__section-video.png";
 import { Section } from "components/Section";
 import { useSiteMetadata } from "hooks/use-site-metadata";
+import { AppButton } from "../components/AppButton";
 
 export default function Home() {
   const { title } = useSiteMetadata();
@@ -29,7 +30,7 @@ export default function Home() {
               className="w-100 d-block mb-4 mb-md-0"
               alt=""
             />
-            <button className="button primary md">Know More</button>
+            <AppButton className="primary md">Know More</AppButton>
           </Section>
           <Section sectionClass={""}>
             <div className="row align-items-center">
@@ -55,7 +56,7 @@ export default function Home() {
               </div>
             </div>
           </Section>
-          <Section sectionClass={"text-center"}>
+          <Section sectionClass={"section__teams-integration text-center"}>
             <h1>Microsoft Teams Integration</h1>
             <p className="mb-4">
               Pratus creates one communication channel between different
@@ -65,18 +66,18 @@ export default function Home() {
               all of our partner, Microsoft's infrastructure.
             </p>
             <div className="button-group justify-content-center">
-              <button
-                className="button primary"
+              <AppButton
+                className="primary"
                 onClick={() => navigate("/contact")}
               >
                 Schedule a Demo
-              </button>
-              <button
-                className="button secondary"
+              </AppButton>
+              <AppButton
+                className="secondary"
                 onClick={() => navigate("/about")}
               >
                 Learn More
-              </button>
+              </AppButton>
             </div>
             {/* <img src={GraphicsVideo} className="w-100 d-block" alt="" /> */}
           </Section>
@@ -85,7 +86,7 @@ export default function Home() {
               <div className="row">
                 <div className="col-md-6 col-lg-5">
                   <h1>Start using PRATUS today.</h1>
-                  <button className="button primary">Start trial now</button>
+                  <AppButton className="primary">Start trial now</AppButton>
                 </div>
                 <div className="col-md-6 ms-auto mt-4 mt-md-0">
                   <ul className="list checked">
