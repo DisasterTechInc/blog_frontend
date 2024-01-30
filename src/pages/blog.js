@@ -20,7 +20,7 @@ export default function Blog({ data }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [view, setView] = useState("grid");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+  const [postsPerPage] = useState(9);
   const [currentPosts, setCurrentPosts] = useState(null);
 
   const [newsletterOptions, setNewsletterOptions] = useState({
