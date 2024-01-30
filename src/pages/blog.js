@@ -294,10 +294,13 @@ export default function Blog({ data }) {
                               <hr className="flex-shrink-0" />
                               <div className="d-flex align-items-center flex-shrink-0">
                                 <span className="blog__avatar">
-                                  <img
-                                    src={post?.author?.node?.avatar?.url}
-                                    alt=""
-                                  />
+                                  {(post?.author?.node?.avatar?.url && (
+                                    <img
+                                      src={post?.author?.node?.avatar?.url}
+                                      alt=""
+                                    />
+                                  )) ||
+                                    null}
                                 </span>
                                 <h6 className="m-0 ms-3">
                                   {post?.author?.node?.name}
@@ -405,10 +408,13 @@ export default function Blog({ data }) {
                               <hr className="flex-shrink-0 mt-0 mt-md-2" />
                               <div className="d-flex align-items-center flex-shrink-0">
                                 <span className="blog__avatar">
-                                  <img
-                                    src={post?.author?.node?.avatar?.url}
-                                    alt=""
-                                  />
+                                  {(post?.author?.node?.avatar?.url && (
+                                    <img
+                                      src={post?.author?.node?.avatar?.url}
+                                      alt=""
+                                    />
+                                  )) ||
+                                    null}
                                 </span>
                                 <h6 className="m-0 ms-3">
                                   {post?.author?.node?.name}
