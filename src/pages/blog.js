@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import { graphql, Link } from "gatsby";
 import { Layout } from "components/Layout";
@@ -29,10 +29,15 @@ export default function Blog({ data }) {
     productUpdates: false,
   });
 
+  const blogSectionRef = useRef(null);
+
   const [favPosts, setFavPosts] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("favorites") !== null
+    ) {
       const favorites = sessionStorage.getItem("favorites");
       const filteredFavorites = JSON.parse(favorites);
       setFavPosts(filteredFavorites);
@@ -42,11 +47,16 @@ export default function Blog({ data }) {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    blogSectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   const paginatePrev = () => {
     if (currentPage === 1) return;
     setCurrentPage((currentValue) => currentValue - 1);
   };
+
   const paginateNext = () => {
     if (currentPage === posts.length / postsPerPage) return;
     setCurrentPage((currentValue) => currentValue + 1);
@@ -114,11 +124,9 @@ export default function Blog({ data }) {
   const handlerFavoritePost = (id) => {
     let ids = [...favPosts];
 
-    if (favPosts.includes(id)) {
-      console.log("included");
+    if (favPosts && favPosts?.length && favPosts.includes(id)) {
       ids = ids.filter((i) => i !== id);
     } else {
-      console.log("not included");
       ids.push(id);
     }
 
@@ -141,7 +149,10 @@ export default function Blog({ data }) {
       </Breadcrumb>
       <main className="site-main">
         <Section sectionClass="pt-0">
-          <div className="d-xl-flex align-items-center mb-3 mb-md-5">
+          <div
+            className="d-xl-flex align-items-center mb-3 mb-md-5"
+            ref={blogSectionRef}
+          >
             <h1 className="m-0 mb-3 mb-md-0">Disaster Tech Blog</h1>
             <div className="d-flex align-items-center ms-auto">
               <div className="d-flex align-items-center">
