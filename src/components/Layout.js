@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "@reach/router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import "assets/sass/app.scss";
@@ -11,17 +10,10 @@ export const Head = () => {
 };
 
 export const Layout = ({ name, children }) => {
-  const location = useLocation();
-  const sitePaddingTop = `${76 + 60}px`; // Header Height + 60px
   return (
     <>
       <Head />
-      <div
-        className={`site site-${name}`}
-        style={{
-          paddingTop: location.pathname === "/" ? "0px" : sitePaddingTop,
-        }}
-      >
+      <div className={`site site-${name}`}>
         <Header />
         {children}
         <Footer />

@@ -26,7 +26,9 @@
 @import 'components/button',
 'components/form',
 'components/breadcrumb',
-'components/modal';
+'components/modal',
+'components/select',
+'components/pagination';
 
 // 5. Layout
 @import 'layout/header',
@@ -35,4 +37,5 @@
 
 // 6. Page
 @import 'pages/home',
-'pages/about';
+'pages/about',
+'pages/blog';

@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import IconDropdown from "assets/images/icon__chevron--down.svg";
+import IconDropdown from "assets/images/icon__angle--down.svg";
 
 export const Nav = ({ isActive }) => {
   const [dropdowns, setDropdowns] = useState({ blog: false });
@@ -44,7 +44,7 @@ export const Nav = ({ isActive }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link activeClassName="active" to="/blog">
+                  <Link activeClassName="active" to="/podcasts">
                     Podcasts
                   </Link>
                 </li>

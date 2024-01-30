@@ -1,0 +1,232 @@
+/////////////////////////
+// Select
+/////////////////////////
+
+.form-selectbox {
+    .react-select {
+        &__control {
+            background: rgba($color-white, .02);
+            @include radius(8px);
+            border: solid 1px rgba($color-white, .18);
+            min-height: auto;
+            box-shadow: none;
+
+            &:hover {
+                border-color: rgba($color-white, .35);
+            }
+
+            &:focus {
+                background: rgba($color-white, .02);
+                border-color: rgba($color-white, .35);
+                color: $color-white;
+                box-shadow: none;
+            }
+
+            &--is-focused,
+            &--menu-is-open {
+                background: rgba($color-white, .02);
+                border-color: rgba($color-white, .35);
+                color: $color-white;
+                box-shadow: none;
+            }
+
+            &--is-disabled {
+                background: rgba($color-white, .02);
+                border-color: rgba($color-white, .18);
+                color: rgba($color-white, .7);
+            }
+        }
+
+        &__value-container {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: .625rem 1rem;
+            @include line__height(22px);
+        }
+
+        &__custom-label {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        &__single-value {
+            margin: 0;
+            @include font__size(14px);
+            @include line__height(22px);
+            font-weight: $font-weight--400;
+            color: $color-white;
+
+            .react-select__custom-label {
+                display: none;
+            }
+
+            &+input {
+                line-height: 22px;
+            }
+        }
+
+        &__input-container {
+            padding: 0;
+            margin: 0;
+            @include font__size(14px);
+            @include line__height(22px);
+            font-weight: $font-weight--400;
+            color: $color-white;
+        }
+
+        &__placeholder {
+            padding: 0;
+            margin: 0;
+            @include font__size(14px);
+            @include line__height(22px);
+            font-weight: $font-weight--400;
+            color: rgba($color-white, .4);
+            opacity: 1;
+        }
+
+        &__indicator {
+            padding: 0;
+            width: 3rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        &__indicator-separator {
+            background-color: rgba($color-white, .18);
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        &__clear-indicator {
+            position: relative;
+
+            svg {
+                display: none;
+            }
+
+            &:after {
+                content: '';
+                background: url('assets/images/icon__times.svg') no-repeat 0 0;
+                background-size: 0.5rem;
+                width: 0.5rem;
+                height: 0.5rem;
+            }
+        }
+
+        &__dropdown-indicator {
+            position: relative;
+            color: $color-white;
+
+            svg {
+                display: none;
+            }
+
+            &:after {
+                content: "";
+                background: url('assets/images/icon__angle--down.svg') no-repeat 0 0;
+                background-size: 1.25rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                display: block;
+                @include transition($transition);
+            }
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+
+        &__control--menu-is-open {
+            .react-select__dropdown-indicator {
+                &:after {
+                    @include rotate(180deg);
+                }
+            }
+        }
+
+        &__menu {
+            z-index: 4;
+            border: 1px solid rgba($color-white, .18);
+            background: #10141e;
+            box-shadow: $shadow-lg;
+            @include radius(.5rem);
+            margin: 0.5rem 0 0;
+            overflow: hidden;
+
+            &-notice {
+                &--no-options {
+                    @include font__size(14px);
+                    @include line__height(24px);
+                    font-weight: $font-weight--400;
+                    color: rgba($color-white, .4);
+                }
+            }
+        }
+
+        &__menu-list {
+            padding-bottom: 0;
+            padding-top: 0;
+            max-height: 286px;
+
+            &::-webkit-scrollbar {
+                width: 0.25rem;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: none;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $gray-500;
+                outline: none;
+                @include radius(1rem);
+            }
+        }
+
+        &__option {
+            @include font__size(14px);
+            @include line__height(24px);
+            font-weight: $font-weight--400;
+            color: rgba($color-white, .4);
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            @include transition($transition);
+            border-bottom: solid 1px rgba($color-white, 0.1);
+            white-space: normal;
+            word-wrap: break-word;
+            word-break: break-all;
+
+            &--is-selected {
+                background: none;
+                color: $color-brand;
+            }
+
+            &--is-focused {
+                background: none;
+                color: rgba($color-white, 1);
+            }
+        }
+
+        &__multi-value {
+            background: $color-brand;
+            margin: 1px 2px 1px 0;
+
+            &__label {
+                color: $color-white;
+                @include font__size(12px);
+                @include line__height(18px);
+                font-weight: $font-weight--500;
+                padding: 0 8px;
+            }
+
+            &__remove {
+                padding: 0 2px;
+            }
+        }
+    }
+}

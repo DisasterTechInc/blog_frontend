@@ -75,7 +75,7 @@
                             padding: .125rem 1rem;
                             @include radius(.5rem);
                             border: 1px solid rgba($color-white, .18);
-                            background: rgba($color-white, .02);
+                            background: #10141e;
                             box-shadow: $shadow-lg;
 
                             li {
@@ -241,10 +241,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: none;
-        outline: none;
-        box-shadow: none;
-        background: $color-accent;
+        background: $color-brand !important;
         @include radius(.25rem);
 
         @include media-breakpoint-up(lg) {
@@ -255,7 +252,7 @@
 
         @include media-breakpoint-down(lg) {
             & {
-                margin-left: auto;
+                margin-left: auto !important;
             }
         }
 
