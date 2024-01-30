@@ -14,7 +14,10 @@ export default function BlogPost({ data, pageContext }) {
   const [favPosts, setFavPosts] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("favorites") !== null
+    ) {
       const favorites = sessionStorage.getItem("favorites");
       const filteredFavorites = JSON.parse(favorites);
       setFavPosts(filteredFavorites);
@@ -40,11 +43,9 @@ export default function BlogPost({ data, pageContext }) {
   const handlerFavoritePost = (id) => {
     let ids = [...favPosts];
 
-    if (favPosts.includes(id)) {
-      console.log("included");
+    if (favPosts && favPosts?.length && favPosts.includes(id)) {
       ids = ids.filter((i) => i !== id);
     } else {
-      console.log("not included");
       ids.push(id);
     }
 
