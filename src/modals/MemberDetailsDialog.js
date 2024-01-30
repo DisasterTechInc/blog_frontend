@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import IconLinkedIn from "assets/images/icon__Linkedin.svg";
+import IconLinkedIn from "../assets/images/icon__linkedin.svg";
 
 export const MemberDetailsDialog = ({ show, onClose, data }) => {
   return (
