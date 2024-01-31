@@ -1,0 +1,154 @@
+/////////////////////////
+// Contact Page
+/////////////////////////
+
+.site-contact {
+    .section__contact {
+        background: rgba($color-white, .04);
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: rgba($color-white, .04);
+        }
+
+        h1 {
+            margin-bottom: 4.5rem;
+
+            @include media-breakpoint-down(md) {
+                & {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(xl) {
+            br {
+                display: none;
+            }
+        }
+
+        .info {
+            display: flex;
+            align-items: flex-start;
+
+            &:not(:first-child) {
+                margin-top: 3rem;
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        margin-top: 2rem;
+                    }
+                }
+            }
+
+            .icon {
+                width: 60px;
+                height: 60px;
+                @include radius(50%);
+                background: $gray-900;
+                display: flex;
+                flex-shrink: 0;
+
+                img {
+                    height: 28px;
+                    width: auto;
+                    margin: auto;
+                }
+            }
+
+            .link {
+                color: $color-brand;
+                display: flex;
+                align-items: center;
+                font-weight: $font-weight--600;
+                @include transition($transition);
+
+                svg {
+                    margin-left: .5rem;
+                    animation-play-state: paused;
+
+                    path {
+                        fill: $color-brand;
+                        @include transition($transition);
+                    }
+                }
+
+                &:hover {
+                    color: $color-brand--reverse;
+
+                    svg {
+                        animation: arrowRight 3s linear infinite;
+
+                        path {
+                            fill: $color-brand--reverse;
+                        }
+                    }
+                }
+
+                &:not(:first-child) {
+                    margin-left: 2.25rem;
+
+                    @include media-breakpoint-down(md) {
+                        & {
+                            margin: .5rem 0 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form {
+            padding: 3.75rem 4.5rem 2.25rem;
+            background: $gray-900;
+            border: solid 1px rgba($color-white, .15);
+            @include radius(.5rem);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+
+            @include media-breakpoint-down(xl) {
+                & {
+                    position: static;
+                    padding: 2rem;
+                    margin-top: 4rem;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding: 1.5rem;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+
+    iframe {
+        width: 100%;
+        height: 540px;
+        margin: 0;
+        border: none;
+        display: block;
+        @include radius(.5rem);
+        overflow: hidden;
+
+        @include media-breakpoint-down(xl) {
+            & {
+                height: 286px;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            & {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

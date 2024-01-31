@@ -53,13 +53,18 @@ export const Nav = ({ isActive }) => {
               null}
           </li>
           <li>
+            <Link activeClassName="active" to="/contact">
+              Contact
+            </Link>
+          </li>
+          <li>
             <Link activeClassName="active" to="/pricing">
               Pricing
             </Link>
           </li>
           <li>
-            <Link activeClassName="active" to="/contact">
-              Contact
+            <Link activeClassName="active" to="/pratus">
+              Pratus
             </Link>
           </li>
         </ul>
