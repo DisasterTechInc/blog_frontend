@@ -22,6 +22,15 @@
     background: $color-white;
     color: $color-black;
 
+    @include media-breakpoint-down(md) {
+        & {
+            @include font__size(14px);
+            @include line__height(22px);
+            padding: .625rem 1.75rem;
+            @include radius(.375rem);
+        }
+    }
+
     &.primary {
         border-color: $color-brand;
         background: $color-brand;
@@ -37,9 +46,22 @@
             background: transparent;
             color: $color-brand;
 
+            svg {
+                path {
+                    fill: $color-brand;
+                    @include transition($transition);
+                }
+            }
+
             &:hover {
                 background: $color-brand--reverse;
                 color: $color-white;
+
+                svg {
+                    path {
+                        fill: $color-white;
+                    }
+                }
             }
         }
 
@@ -296,7 +318,8 @@
                         margin-top: 1rem;
                     }
 
-                    &.sm {
+                    &.sm,
+                    &.md {
                         &:not(:first-child) {
                             margin-left: 0;
                             margin-top: 1rem;
