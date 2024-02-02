@@ -56,10 +56,13 @@ export const Footer = () => {
                       <Link to="/blog">Blog</Link>
                     </li>
                     <li>
+                      <Link to="/contact">Contact</Link>
+                    </li>
+                    <li>
                       <Link to="/pricing">Pricing</Link>
                     </li>
                     <li>
-                      <Link to="/contact">Contact</Link>
+                      <Link to="/pratus">Pratus</Link>
                     </li>
                   </ul>
                   <ul className="site-footer__nav">

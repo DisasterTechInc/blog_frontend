@@ -228,24 +228,24 @@
                 }
             }
 
-            .button {
-                &.reverse {
-                    svg {
-                        path {
-                            fill: $color-brand;
-                            transition: $transition;
-                        }
-                    }
+            // .button {
+            //     &.reverse {
+            //         svg {
+            //             path {
+            //                 fill: $color-brand;
+            //                 @include transition($transition);
+            //             }
+            //         }
 
-                    &:hover {
-                        svg {
-                            path {
-                                fill: $color-white;
-                            }
-                        }
-                    }
-                }
-            }
+            //         &:hover {
+            //             svg {
+            //                 path {
+            //                     fill: $color-white;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         }
 
         &__html {

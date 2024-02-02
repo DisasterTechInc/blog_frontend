@@ -146,3 +146,29 @@ hr {
   opacity: 1;
   margin: 1.5rem 0;
 }
+
+.p8 {
+  padding: 8rem;
+
+  &--x {
+    padding: 0 8rem;
+  }
+
+  &--y {
+    padding: 8rem 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    & {
+      padding: 4rem;
+
+      &--x {
+        padding: 0 4rem;
+      }
+
+      &--y {
+        padding: 4rem 0;
+      }
+    }
+  }
+}
