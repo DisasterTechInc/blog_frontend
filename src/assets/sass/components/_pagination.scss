@@ -1,0 +1,60 @@
+/////////////////////////
+// Pagination
+/////////////////////////
+
+.pagination {
+    margin: 0;
+    display: flex;
+    align-items: center;
+
+    .page {
+        &-item {
+            &:not(:first-child) {
+                margin-left: .5rem
+            }
+
+            &:first-child,
+            &:last-child {
+                .page-link {
+                    background: none;
+                }
+            }
+
+            &.disabled {
+                opacity: .5;
+            }
+        }
+
+        &-link {
+            @include radius(.25rem);
+            @include font__size(14px);
+            @include line__height(20px);
+            font-weight: $font-weight--600;
+            color: $color-white;
+            padding: .5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: block;
+            min-width: 2.25rem;
+            user-select: none;
+            margin: 0;
+            text-align: center;
+
+            img {
+                display: block;
+                height: 1.25rem;
+                width: 1.25rem;
+                display: block;
+            }
+
+            &:hover {
+                background: rgba($color-white, .04);
+            }
+
+            &.active {
+                background: $color-brand;
+            }
+        }
+    }
+}

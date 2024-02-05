@@ -59,6 +59,25 @@
             -moz-appearance: textfield;
         }
 
+        &[type=search]::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &[type=search]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &[type="search"]::-webkit-search-decoration,
+        &[type="search"]::-webkit-search-cancel-button,
+        &[type="search"]::-webkit-search-results-button,
+        &[type="search"]::-webkit-search-results-decoration {
+            display: none;
+        }
+
         &.md {
             @include font__size(14px);
             @include line__height(22px);
@@ -110,6 +129,90 @@
         &.error {
             background: rgba($color-error, .12);
             color: $color-error;
+        }
+    }
+
+    &-search {
+        position: relative;
+
+        .icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            @include translate(0, -50%);
+
+            img {
+                height: 1.25rem;
+                width: auto;
+            }
+        }
+
+        .form-control {
+            padding-right: 3.25rem;
+        }
+    }
+
+    &-checkbox {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            background: transparent;
+            @include radius(.125rem);
+            border: solid 2px rgba($color-white, .5);
+            position: relative;
+            @include transition($transition);
+            flex-shrink: 0;
+            margin-top: 2px;
+
+            &:after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                background: url(assets/images/icon__check.svg) no-repeat 0 0;
+                background-size: 10px;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                @include transition($transition);
+            }
+        }
+
+        [type='checkbox'] {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+
+            &:checked {
+                &+.icon {
+                    border-color: $color-brand;
+                    background: $color-brand;
+
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .form-label {
+            margin: 0;
+            margin-left: .75rem;
+            @include font__size(14px);
+            @include line__height(22px);
+            font-weight: $font-weight--400;
+            color: rgba($color-white, .7);
         }
     }
 }

@@ -14,9 +14,29 @@
                 }
             }
         }
+
+        @include media-breakpoint-down(md) {
+            & {
+                padding-bottom: 0 !important;
+            }
+        }
+    }
+
+    &__teams-integration {
+        @include media-breakpoint-down(md) {
+            & {
+                padding-top: 0 !important;
+            }
+        }
     }
 
     &__start-trial {
+        @include media-breakpoint-down(md) {
+            & {
+                padding-top: 0 !important;
+            }
+        }
+
         .inner {
             padding: 7rem;
             overflow: hidden;

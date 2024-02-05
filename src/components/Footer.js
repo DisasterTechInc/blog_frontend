@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import Logo from "assets/images/logo.svg";
 import { useSiteMetadata } from "hooks/use-site-metadata";
+import { AppButton } from "./AppButton";
+import { AppInput } from "./AppInput";
 
 export const Footer = () => {
   const { title, copyright } = useSiteMetadata();
@@ -28,14 +30,15 @@ export const Footer = () => {
                   Subscribe to our newsletter
                 </label>
                 <div className="d-flex align-items-center">
-                  <input
+                  <AppInput
                     type="email"
-                    className="form-control md"
+                    className="md"
                     placeholder="Your Email"
+                    readOnly
                   />
-                  <button type="button" className="button md primary">
+                  <AppButton type="submit" className="md primary">
                     Subscribe
-                  </button>
+                  </AppButton>
                 </div>
               </div>
             </div>
@@ -50,21 +53,24 @@ export const Footer = () => {
                       <Link to="/about">About</Link>
                     </li>
                     <li>
-                      <Link to="/">Blog</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Pricing</Link>
+                      <Link to="/blog">Blog</Link>
                     </li>
                     <li>
                       <Link to="/contact">Contact</Link>
                     </li>
+                    <li>
+                      <Link to="/pricing">Pricing</Link>
+                    </li>
+                    <li>
+                      <Link to="/pratus">Pratus</Link>
+                    </li>
                   </ul>
                   <ul className="site-footer__nav">
                     <li>
-                      <Link to="/">Terms &amp; Conditions</Link>
+                      <Link to="/terms">Terms &amp; Conditions</Link>
                     </li>
                     <li>
-                      <Link to="/">Privacy Policy</Link>
+                      <Link to="/privacy-policy">Privacy Policy</Link>
                     </li>
                   </ul>
                 </div>

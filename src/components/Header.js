@@ -5,6 +5,7 @@ import Logo from "assets/images/logo.svg";
 import IconSignIn from "assets/images/icon__signin.svg";
 import IconSignUp from "assets/images/icon__user.svg";
 import { useSiteMetadata } from "hooks/use-site-metadata";
+import { AppButton } from "./AppButton";
 
 export const Header = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -27,7 +28,8 @@ export const Header = () => {
               <Link to={"/"} title={title} className="site-header__logo">
                 <img src={Logo} alt={title} />
               </Link>
-              <button
+              <AppButton
+                custom
                 className={`site-header__toggle ${
                   (showMobileNav && "active") || ""
                 }`}
@@ -44,17 +46,17 @@ export const Header = () => {
                     d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
                   />
                 </svg>
-              </button>
+              </AppButton>
               <Nav isActive={showMobileNav} />
               <div className="site-header__buttons button-group ms-lg-auto">
-                <button className="button secondary sm">
+                <AppButton className="secondary sm">
                   <img src={IconSignIn} alt="" className="me-lg-2" />
                   <span className="d-none d-lg-block">Sign in</span>
-                </button>
-                <button className="button primary sm">
+                </AppButton>
+                <AppButton className="primary sm">
                   <img src={IconSignUp} alt="" className="me-lg-2" />
                   <span className="d-none d-lg-block">Sign up</span>
-                </button>
+                </AppButton>
               </div>
             </div>
           </div>

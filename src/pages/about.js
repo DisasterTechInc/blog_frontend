@@ -24,6 +24,7 @@ import SampleLogo03 from "assets/images/sample__logo--03.svg";
 import SampleLogo04 from "assets/images/sample__logo--04.svg";
 import SampleLogo05 from "assets/images/sample__logo--05.svg";
 import SampleLogo06 from "assets/images/sample__logo--06.svg";
+import { AppButton } from "../components/AppButton";
 
 const settings = {
   dots: false,
@@ -95,12 +96,12 @@ export default function About() {
                 praesent.
               </p>
               <div className="button-group justify-content-center mb-4">
-                <button
-                  className="button primary md"
+                <AppButton
+                  className="primary md"
                   onClick={() => navigate("/contact")}
                 >
                   Contact Us
-                </button>
+                </AppButton>
               </div>
             </div>
           </div>
@@ -110,75 +111,71 @@ export default function About() {
           <div className="d-flex align-items-center mb-4">
             <h1 className="m-0">Our Talented Team </h1>
             <div className="button-group ms-auto">
-              <button
-                className={`button md ${
+              <AppButton
+                className={`md ${
                   teamCategory === "Team Member" ? "primary" : "secondary"
                 }`}
                 onClick={() => setTeamCategory("Team Member")}
               >
                 Team Members
-              </button>
-              <button
-                className={`button md ${
+              </AppButton>
+              <AppButton
+                className={`md ${
                   teamCategory === "Senior Advisors" ? "primary" : "secondary"
                 }`}
                 onClick={() => setTeamCategory("Senior Advisors")}
               >
                 Senior Advisors
-              </button>
-              <button
-                className={`button md ${
+              </AppButton>
+              <AppButton
+                className={`md ${
                   teamCategory === "Board Member" ? "primary" : "secondary"
                 }`}
                 onClick={() => setTeamCategory("Board Member")}
               >
                 Board Members
-              </button>
+              </AppButton>
             </div>
           </div>
           {teams && !!teams?.length ? (
             <div className="row justify-content-center">
               {teams.map((member) => (
-                <>
-                  <div
-                    className="member col-md-3 text-center mt-4 pb-3"
-                    key={member?.id}
-                  >
-                    <div className="avatar">
+                <div
+                  className="member col-md-3 text-center mt-4 pb-3"
+                  key={member?.id}
+                >
+                  <div className="avatar">
+                    <img
+                      src={member?.avatar}
+                      alt={member?.name}
+                      title={member?.name}
+                    />
+                    <AppButton
+                      className="sm"
+                      onClick={() => {
+                        setDataMemberBioDialog(member);
+                        setShowMemberBioDialog(true);
+                      }}
+                    >
+                      Bio{" "}
                       <img
-                        src={member?.avatar}
-                        alt={member?.name}
-                        title={member?.name}
+                        src={ArrowRightDark}
+                        className="ms-2 animate__arrow--right"
+                        alt=""
                       />
-                      <button
-                        className="button sm"
-                        onClick={() => {
-                          setDataMemberBioDialog(member);
-                          setShowMemberBioDialog(true);
-                        }}
-                      >
-                        Bio{" "}
-                        <img
-                          src={ArrowRightDark}
-                          className="ms-2 animate__arrow--right"
-                          alt=""
-                        />
-                      </button>
-                    </div>
-                    <p className="text-l weight-700 m-0 color-white mb-1">
-                      {member?.name}
-                    </p>
-                    <p className="text-s weight-600 m-0">
-                      {member?.designation}
-                    </p>
+                    </AppButton>
                   </div>
-                </>
+                  <p className="text-l weight-700 m-0 color-white mb-1">
+                    {member?.name}
+                  </p>
+                  <p className="text-s weight-600 m-0">{member?.designation}</p>
+                </div>
               ))}
             </div>
           ) : null}
           <div className="button-group justify-content-center mt-5">
-            <button
-              className="button primary md"
+            <AppButton
+              className="primary md"
               onClick={() => navigate("/contact")}
             >
               Join Our Team{" "}
@@ -187,7 +184,7 @@ export default function About() {
                 className="ms-2 animate__arrow--right"
                 alt=""
               />
-            </button>
+            </AppButton>
           </div>
         </Section>
         <Section sectionClass={"section__stats lrg"}>
@@ -201,12 +198,12 @@ export default function About() {
                 agility to achieve better outcomes for your organization and the
                 communities you serve.
               </p>
-              <button
-                className="button primary"
+              <AppButton
+                className="primary"
                 onClick={() => navigate("/contact")}
               >
                 Contact Us
-              </button>
+              </AppButton>
             </div>
             <div className="col-md-6 ms-auto">
               <div className="row align-items-center">
@@ -274,18 +271,20 @@ export default function About() {
               </h2>
               {(Testimonials && Testimonials.length > 3 && (
                 <div className="control">
-                  <button
-                    className="button custom prev"
+                  <AppButton
+                    custom
+                    className="prev"
                     onClick={() => sliderRef.current.slickPrev()}
                   >
                     <img src={IconAngleLeft} alt="" />
-                  </button>
-                  <button
-                    className="button custom next"
+                  </AppButton>
+                  <AppButton
+                    custom
+                    className="next"
                     onClick={() => sliderRef.current.slickNext()}
                   >
                     <img src={IconAngleRight} alt="" />
-                  </button>
+                  </AppButton>
                 </div>
               )) ||
                 null}
@@ -295,34 +294,32 @@ export default function About() {
                 {(Testimonials &&
                   !!Testimonials.length &&
                   Testimonials.map((item) => (
-                    <>
-                      <div className="block" key={item?.id}>
-                        <div className="content">
-                          <p className="m-0">{item?.content}</p>
-                          <div className="rating outer">
-                            <span
-                              className="rating inner"
-                              style={{
-                                width: `${
-                                  (Number(item?.rating) / 5) * 100 || 2
-                                }%`,
-                              }}
-                            ></span>
-                          </div>
-                        </div>
-                        <div className="author">
-                          <img src={item?.avatar} alt="" />
-                          <div className="ms-3 weight-700">
-                            <span className="text-s d-block color-white">
-                              {item?.author}
-                            </span>
-                            <span className="text-xs d-block">
-                              {item?.designation}
-                            </span>
-                          </div>
+                    <div className="block" key={item?.id}>
+                      <div className="content">
+                        <p className="m-0">{item?.content}</p>
+                        <div className="rating outer">
+                          <span
+                            className="rating inner"
+                            style={{
+                              width: `${
+                                (Number(item?.rating) / 5) * 100 || 2
+                              }%`,
+                            }}
+                          ></span>
                         </div>
                       </div>
-                    </>
+                      <div className="author">
+                        <img src={item?.avatar} alt="" />
+                        <div className="ms-3 weight-700">
+                          <span className="text-s d-block color-white">
+                            {item?.author}
+                          </span>
+                          <span className="text-xs d-block">
+                            {item?.designation}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   ))) ||
                   null}
               </Slider>
@@ -338,12 +335,9 @@ export default function About() {
               Launch Your Incident Command <br />
               Center with Us
             </h1>
-            <button
-              className="button primary"
-              onClick={() => navigate("/contact")}
-            >
+            <AppButton className="primary" onClick={() => navigate("/contact")}>
               Work with us
-            </button>
+            </AppButton>
           </div>
         </Section>
       </main>

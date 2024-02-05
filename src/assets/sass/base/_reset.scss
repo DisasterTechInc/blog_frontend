@@ -28,6 +28,14 @@
   }
 }
 
+.w-xl-auto {
+  @include media-breakpoint-up(xl) {
+    & {
+      width: auto !important;
+    }
+  }
+}
+
 .w-lg-auto {
   @include media-breakpoint-up(lg) {
     & {
@@ -127,4 +135,40 @@ b {
 
 .rounded {
   border-radius: 8px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+hr {
+  border-top-color: rgba($color-white, .15);
+  opacity: 1;
+  margin: 1.5rem 0;
+}
+
+.p8 {
+  padding: 8rem;
+
+  &--x {
+    padding: 0 8rem;
+  }
+
+  &--y {
+    padding: 8rem 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    & {
+      padding: 4rem;
+
+      &--x {
+        padding: 0 4rem;
+      }
+
+      &--y {
+        padding: 4rem 0;
+      }
+    }
+  }
 }

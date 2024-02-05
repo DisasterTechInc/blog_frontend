@@ -10,6 +10,17 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 124px;
+
+    &.site-home {
+        padding-top: 0;
+    }
+
+    @include media-breakpoint-down(xl) {
+        & {
+            padding-top: 98px;
+        }
+    }
 
     &-main {
         &>section {
@@ -86,5 +97,45 @@ body {
 .animate {
     &__arrow--right {
         animation: arrowRight 3s linear infinite;
+    }
+}
+
+.socials {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+        & {
+            justify-content: center;
+        }
+    }
+
+    li {
+        &:not(:first-child) {
+            margin-left: 1rem;
+        }
+
+        a {
+            background: rgba($color-white, .05);
+            @include radius(6px);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            @include transition($transition);
+
+            img {
+                height: 1.25rem;
+                width: auto;
+                margin: auto;
+            }
+
+            &:hover {
+                background: $color-brand;
+                box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.90);
+            }
+        }
     }
 }

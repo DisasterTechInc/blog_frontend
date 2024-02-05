@@ -2,6 +2,7 @@ import React from "react";
 import { navigate } from "gatsby";
 import { Layout } from "components/Layout";
 import { Section } from "components/Section";
+import { AppButton } from "../components/AppButton";
 
 export default function NotFound() {
   return (
@@ -13,9 +14,9 @@ export default function NotFound() {
             <p className="color-white text-l weight-600 mb-5">
               The page you are looking for doesn't exist.
             </p>
-            <button className="button primary" onClick={() => navigate("/")}>
+            <AppButton className="primary" onClick={() => navigate("/")}>
               Back to Home
-            </button>
+            </AppButton>
           </Section>
         </div>
       </Layout>
