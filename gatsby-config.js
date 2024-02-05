@@ -27,6 +27,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: "22725544",
+        respectDNT: false,
+        productionOnly: true,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
