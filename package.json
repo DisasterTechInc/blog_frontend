@@ -16,6 +16,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.2",
     "gatsby": "^5.12.12",
+    "gatsby-plugin-hubspot": "^2.0.0",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-sass": "^6.12.3",
     "gatsby-plugin-sharp": "^5.12.3",
