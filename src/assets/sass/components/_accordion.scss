@@ -1,0 +1,147 @@
+/////////////////////////
+// Accordion
+/////////////////////////
+
+.accordion {
+    border: none;
+    @include radius(0px);
+
+    &-item {
+        background: none;
+        border: none;
+
+        &:not(:first-child) {
+            margin-top: 1rem
+        }
+    }
+
+    &-header {
+        margin: 0;
+    }
+
+    &-button {
+        @include font__size(16px);
+        @include line__height(26px);
+        font-weight: $font-weight--600;
+        color: $color-white;
+        padding: 1rem 1.5rem;
+        border-radius: .5rem !important;
+        background: rgba($color-white, .04);
+        box-shadow: none;
+        justify-content: space-between;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:after {
+            display: none;
+        }
+
+        &:before {
+            content: "";
+            order: 1;
+            background: rgba($color-white, .05) url(assets/images/icon__angle--down.svg) no-repeat center;
+            background-size: 1.25rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            flex-shrink: 0;
+            @include radius(50%);
+            margin-left: 1.5rem;
+            @include transition($transition);
+        }
+
+        &:not(.collapsed) {
+            color: $color-white;
+            background: rgba($color-white, .04);
+            box-shadow: none;
+            border-radius: .5rem .5rem 0 0 !important;
+
+            &:before {
+                @include rotate(180deg);
+            }
+        }
+    }
+
+    &-body {
+        background: rgba($color-white, .04);
+        padding: 0 1.5rem .5rem;
+        color: rgba($color-white, .5);
+        border-radius: 0 0 .5rem .5rem;
+        @include font__size(14px);
+        @include line__height(24px);
+        font-weight: $font-weight--400;
+
+        & * {
+            word-break: break-all;
+            white-space: normal;
+        }
+
+        a {
+            color: rgba($color-white, .5);
+            @include transition($transition);
+
+            &:hover {
+                color: rgba($color-white, .7);
+            }
+        }
+
+        ul {
+            margin: 0;
+            margin-bottom: 1rem;
+            padding: 0;
+            list-style: none;
+
+            li {
+                position: relative;
+                padding-left: 1rem;
+
+                &:before {
+                    content: "\2022";
+                    color: inherit;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    display: block;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+
+
+            tr {
+                border-top: solid 1px rgba($color-white, 0.15);
+
+                td {
+                    border-right: solid 1px rgba($color-white, 0.15);
+                    padding: 1rem;
+                    text-align: center;
+
+                    &:first-child {
+                        font-weight: $font-weight--600;
+                        color: $color-white;
+                        text-align: left;
+                        width: 60%;
+                    }
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+
+        }
+    }
+}

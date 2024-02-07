@@ -227,8 +227,7 @@
         color: $color-black;
 
         &:hover {
-            background: $color-brand;
-            border-color: $color-brand;
+            background: transparent;
             color: $color-white;
         }
 

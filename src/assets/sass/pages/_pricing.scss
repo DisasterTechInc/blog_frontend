@@ -1,0 +1,333 @@
+/////////////////////////
+// Pricing Page
+/////////////////////////
+
+.site-pricing {
+    .section {
+        &__pricing {
+            display: flex;
+            align-items: center;
+
+            @include media-breakpoint-down(lg) {
+                & {
+                    display: block;
+                }
+            }
+
+            &>div {
+                width: calc((100% - (1.5rem * 2)) / 3);
+                border: 1px solid rgba($color-white, 0.15);
+                background: rgba($color-white, 0.04);
+                @include radius(.5rem);
+                padding: 4rem;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+
+                @include media-breakpoint-down(xl) {
+                    & {
+                        padding: 4rem 2rem;
+                    }
+                }
+
+                @include media-breakpoint-down(lg) {
+                    & {
+                        width: 100%;
+                        padding: 4rem 3rem;
+                    }
+                }
+
+                &:not(:first-child, :last-child) {
+                    background: $color-brand;
+                    border: none;
+                    box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.90);
+                    width: calc(((100% - (1.5rem * 2)) / 3) + (1.5rem * 2));
+                    padding: 5.5rem;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 1.5rem;
+                        bottom: 1.5rem;
+                        left: 1.5rem;
+                        right: 1.5rem;
+                        @include radius(.5rem);
+                        border: solid 1px $color-white;
+                        opacity: .15;
+                        z-index: -1;
+                    }
+
+                    @include media-breakpoint-down(xl) {
+                        & {
+                            padding: 5.5rem 2rem;
+                        }
+                    }
+
+                    @include media-breakpoint-down(lg) {
+                        & {
+                            width: 100%;
+                            padding: 4rem 3rem;
+                            margin: 1.5rem 0;
+                        }
+                    }
+                }
+
+                @include media-breakpoint-up(md) {
+                    & {
+                        &:first-child {
+                            @include radius(.5rem 0 0 .5rem);
+                        }
+
+                        &:last-child {
+                            @include radius(0 .5rem .5rem 0);
+                        }
+                    }
+                }
+
+                span {
+                    @include font__size(48px);
+                    @include line__height(62px);
+                    font-weight: $font-weight--800;
+                    color: $color-white;
+                    display: block;
+                }
+            }
+        }
+
+        &__plan-info {
+            .desktop {
+                table {
+                    width: 100%;
+
+                    th,
+                    td {
+                        vertical-align: middle;
+                    }
+
+                    thead {
+                        tr {
+                            &.gap {
+                                height: 38px;
+                                @include line__height(38px);
+                                @include font__size(0px);
+                            }
+
+                            th {
+                                padding: 0 1.5rem;
+                                text-align: center;
+
+                                &:first-child {
+                                    width: 400px;
+                                    padding: 0;
+                                    text-align: left;
+                                }
+
+                                p {
+                                    margin: 0;
+                                    color: rgba($color-white, 0.5);
+                                }
+
+                                .button {
+                                    padding-left: 1rem;
+                                    padding-right: 1rem;
+                                }
+                            }
+                        }
+                    }
+
+
+                    tbody {
+                        tr {
+                            border-top: solid 1px rgba($color-white, 0.15);
+
+                            &.edge {
+                                border: none;
+
+                                td {
+                                    height: 1.125rem;
+                                    @include line__height(18px);
+                                    background: none;
+                                    border: none;
+                                    padding: 0;
+
+                                    &:nth-child(4) {
+                                        background: $color-brand;
+                                    }
+                                }
+
+                                &.top {
+                                    td {
+                                        &:nth-child(4) {
+                                            @include radius(.5rem .5rem 0 0);
+                                        }
+                                    }
+                                }
+
+                                &.bot {
+                                    td {
+                                        &:nth-child(4) {
+                                            @include radius(0 0 .5rem .5rem);
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                td {
+                                    &:first-child {
+                                        @include radius(.5rem 0 0 0);
+                                    }
+
+                                    &:last-child {
+                                        @include radius(0 .5rem 0 0);
+                                    }
+                                }
+                            }
+
+                            &:nth-child(2),
+                            &:nth-last-child(1) {
+                                border: none;
+                            }
+
+                            &:nth-last-child(2) {
+                                td {
+                                    &:first-child {
+                                        @include radius(0 0 0 .5rem);
+                                    }
+
+                                    &:last-child {
+                                        @include radius(0 0 .5rem 0);
+                                    }
+                                }
+                            }
+
+                            td {
+                                background: rgba($color-white, 0.04);
+                                border-right: solid 1px rgba($color-white, 0.15);
+                                padding: 1.5rem;
+                                text-align: center;
+
+                                &:first-child {
+                                    font-weight: $font-weight--600;
+                                    color: $color-white;
+                                    text-align: left;
+                                }
+
+                                &:last-child {
+                                    border: none;
+                                }
+
+                                &.highlight {
+                                    background: $color-brand;
+                                    color: rgba($color-white, 0.7);
+
+                                    svg {
+                                        path {
+                                            fill: $color-white !important;
+                                            fill-opacity: 1 !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mobile {
+                .accordion {
+                    &-button {
+                        .button {
+                            width: 160px;
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        .accordion {
+                            &-button {
+                                align-items: flex-end;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__get-started {
+            .inner {
+                border: solid 1px rgba($color-white, .15);
+                padding: 5rem;
+                @include radius(.5rem);
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        padding: 2rem 1rem;
+                    }
+                }
+
+                @include media-breakpoint-up(md) {
+                    .form-control {
+                        border-top-right-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        flex-grow: 1;
+                    }
+
+                    .button {
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        flex-shrink: 0;
+                    }
+                }
+
+                @include media-breakpoint-down(md) {
+                    .form-control {
+                        margin-bottom: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .logos {
+        align-items: center;
+
+        [class*="col-"] {
+            span {
+                display: flex;
+                border: solid 1px rgba($color-white, 0.15);
+                @include radius(.5rem);
+                height: 100px;
+                @include transition($transition);
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        height: 4rem;
+                    }
+                }
+            }
+
+            img {
+                max-width: 90%;
+                height: auto;
+                opacity: .6;
+                @include transition($transition);
+                margin: auto;
+            }
+        }
+
+        [class*="col-"] {
+            &:hover {
+                span {
+                    border: solid 1px rgba($color-white, 1);
+
+                    &>img {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
