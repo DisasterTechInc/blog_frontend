@@ -9,15 +9,25 @@ export const Head = () => {
   return <title>{title}</title>;
 };
 
-export const Layout = ({ name, children }) => {
+export const Layout = ({ name, children, is404 = false }) => {
   return (
     <>
       <Head />
-      <div className={`site site-${name}`}>
-        <Header />
-        {children}
-        <Footer />
-      </div>
+      {(!is404 && (
+        <div className={`site ${(name && `site-${name}`) || ""}`}>
+          <Header />
+          {children}
+          <Footer />
+        </div>
+      )) || (
+        <>
+          <div className={`site ${(name && `site-${name}`) || ""}`}>
+            <Header />
+            {children}
+          </div>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
