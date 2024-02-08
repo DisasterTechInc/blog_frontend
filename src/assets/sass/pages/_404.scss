@@ -1,0 +1,18 @@
+/////////////////////////
+// 404 Page
+/////////////////////////
+
+.site-404 {
+    background: url(assets/images/bg__404.png) no-repeat center / cover;
+
+    .site-main {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+
+        p {
+            @include font__size(16px);
+            @include line__height(26px);
+        }
+    }
+}
