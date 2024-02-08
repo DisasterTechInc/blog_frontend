@@ -28,7 +28,8 @@
 'components/breadcrumb',
 'components/modal',
 'components/select',
-'components/pagination';
+'components/pagination',
+'components/accordion';
 
 // 5. Layout
 @import 'layout/header',
@@ -40,4 +41,6 @@
 'pages/about',
 'pages/blog',
 'pages/contact',
-'pages/pratus';
+'pages/pratus',
+'pages/pricing',
+'pages/404';

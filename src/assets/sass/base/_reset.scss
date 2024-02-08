@@ -172,3 +172,11 @@ hr {
     }
   }
 }
+
+.bg {
+  &-white {
+    &--04 {
+      background: rgba($color-white, .04) !important;
+    }
+  }
+}
