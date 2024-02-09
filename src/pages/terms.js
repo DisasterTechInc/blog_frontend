@@ -7,10 +7,10 @@ export default function Terms() {
   return (
     <Layout name="about">
       <Breadcrumb>
-        <li className="active">Terms</li>
+        <li className="active">Terms &amp; Conditions</li>
       </Breadcrumb>
       <Section>
-        <h4 className="lrg m-0">Terms</h4>
+        <h4 className="lrg m-0">Terms &amp; Conditions</h4>
       </Section>
       <main className="site-main"></main>
     </Layout>
