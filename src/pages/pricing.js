@@ -199,17 +199,32 @@ export default function Pricing() {
                           {i.slice(1)}
                         </span>
                         {i === "free" ? (
-                          <AppButton className={"primary reverse sm ms-auto"}>
+                          <span
+                            className={"button primary reverse sm ms-auto"}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                          >
                             14 day free trial
-                          </AppButton>
+                          </span>
                         ) : i === "enterprise" ? (
-                          <AppButton className={"primary reverse sm ms-auto"}>
+                          <span
+                            className={"button primary reverse sm ms-auto"}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                          >
                             Contact sales
-                          </AppButton>
+                          </span>
                         ) : (
-                          <AppButton className={"primary reverse sm ms-auto"}>
+                          <span
+                            className={"button primary reverse sm ms-auto"}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                          >
                             Get started
-                          </AppButton>
+                          </span>
                         )}
                       </div>
                     </Accordion.Header>
