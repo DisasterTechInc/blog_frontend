@@ -118,7 +118,7 @@ export default function Pratus() {
                 </AppButton>
                 <AppButton
                   className="primary reverse md"
-                  onClick={() => navigate("/pricing")}
+                  onClick={() => navigate("/contact")}
                 >
                   Schedule a Demo
                   <svg

@@ -4,10 +4,21 @@ import Logo from "assets/images/logo.svg";
 import { useSiteMetadata } from "hooks/use-site-metadata";
 import { AppButton } from "./AppButton";
 import { AppInput } from "./AppInput";
+import { useForm, Controller } from "react-hook-form";
 
 export const Footer = () => {
+  const {
+    handleSubmit,
+    control,
+    getFieldState,
+    watch,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
   const { title, copyright } = useSiteMetadata();
 
+  const onSubmit = async (data) => {
+    console.log("form data", data);
+  };
   return (
     <>
       <footer className="site-footer">
@@ -29,17 +40,55 @@ export const Footer = () => {
                 <label className="form-label text-s">
                   Subscribe to our newsletter
                 </label>
-                <div className="d-flex align-items-center">
-                  <AppInput
-                    type="email"
-                    className="md"
-                    placeholder="Your Email"
-                    readOnly
-                  />
-                  <AppButton type="submit" className="md primary">
-                    Subscribe
-                  </AppButton>
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="d-flex align-items-center">
+                    <Controller
+                      control={control}
+                      name="email"
+                      rules={{
+                        required: true,
+                        pattern:
+                          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                      }}
+                      render={({ field: { onChange, value } }) => (
+                        <AppInput
+                          className={`md ${
+                            errors?.email?.type === "required" ||
+                            errors?.email?.type === "pattern"
+                              ? "error"
+                              : !!watch("email") &&
+                                !errors?.email &&
+                                !getFieldState("email")?.invalid
+                              ? "success"
+                              : ""
+                          }`}
+                          type="text"
+                          onChange={onChange}
+                          value={value}
+                          placeholder={"Your Email"}
+                        />
+                      )}
+                    />
+                    <AppButton type="submit" className="md primary">
+                      Subscribe
+                    </AppButton>
+                  </div>
+                  {errors?.email?.type === "required" && (
+                    <span className="form-status error">
+                      This field is required
+                    </span>
+                  )}
+                  {errors?.email?.type === "pattern" && (
+                    <span className="form-status error">
+                      Please provide a valid email
+                    </span>
+                  )}
+                  {!!watch("email") &&
+                    !errors?.email &&
+                    !getFieldState("email")?.invalid && (
+                      <span className="form-status success">Looks good!</span>
+                    )}
+                </form>
               </div>
             </div>
             <div className="col-lg-7 col-xl-6 ms-auto">

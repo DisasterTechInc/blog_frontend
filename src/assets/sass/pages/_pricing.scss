@@ -280,12 +280,6 @@
                         flex-shrink: 0;
                     }
                 }
-
-                @include media-breakpoint-down(md) {
-                    .form-control {
-                        margin-bottom: 1.25rem;
-                    }
-                }
             }
         }
     }

@@ -11,8 +11,17 @@ import { AppCheckbox } from "../components/AppCheckbox";
 import { AppSelect } from "../components/AppSelect";
 import { AppButton } from "../components/AppButton";
 import { AppInput } from "../components/AppInput";
+import { useForm, Controller } from "react-hook-form";
 
 export default function Blog({ data }) {
+  const {
+    handleSubmit,
+    control,
+    getFieldState,
+    watch,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
+
   const allWpPost = data?.allWpPost?.nodes;
 
   const [posts, setPosts] = useState(data?.allWpPost?.nodes);
@@ -140,6 +149,10 @@ export default function Blog({ data }) {
 
   const handleSubscriptionOptions = (label, value) => {
     setNewsletterOptions({ ...newsletterOptions, [label]: value });
+  };
+
+  const onSubmit = async (data) => {
+    console.log("form data", data);
   };
 
   return (
@@ -464,56 +477,114 @@ export default function Blog({ data }) {
           <div className="row justify-content-center">
             <div className="col-xl-8">
               <h1 className="mb-4 mb-md-5">Don't Want to Miss Anything?</h1>
-              <div className="d-flex flex-column flex-md-row align-items-md-center">
-                <h5 className="m-0">Sign up for Newsletters</h5>
-                <AppCheckbox
-                  className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
-                  id={"newsletter"}
-                  label={"Newsletter"}
-                  checked={newsletterOptions.newsletter}
-                  onClick={() =>
-                    handleSubscriptionOptions(
-                      "newsletter",
-                      !newsletterOptions.newsletter
-                    )
-                  }
-                />
-                <AppCheckbox
-                  className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
-                  id={"blogPosts"}
-                  label={"Blog Posts"}
-                  checked={newsletterOptions.blogPosts}
-                  onClick={() =>
-                    handleSubscriptionOptions(
-                      "blogPosts",
-                      !newsletterOptions.blogPosts
-                    )
-                  }
-                />
-                <AppCheckbox
-                  className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
-                  id={"productUpdates"}
-                  label={"Product Updates"}
-                  checked={newsletterOptions.productUpdates}
-                  onClick={() =>
-                    handleSubscriptionOptions(
-                      "productUpdates",
-                      !newsletterOptions.productUpdates
-                    )
-                  }
-                />
-              </div>
-              <div className="d-flex align-items-center mt-4 mt-md-5">
-                <AppInput
-                  type="email"
-                  className="md flex-grow-1"
-                  placeholder="Your Email"
-                  readOnly
-                />
-                <AppButton className="md primary flex-shrink-0 ms-3">
-                  Subscribe *
-                </AppButton>
-              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="d-flex flex-column flex-md-row align-items-md-center">
+                  <h5 className="m-0">Sign up for Newsletters</h5>
+                  <Controller
+                    control={control}
+                    name="newsletter"
+                    rules={{
+                      required: false,
+                    }}
+                    defaultValue={false}
+                    render={({ field: { onChange, value } }) => (
+                      <AppCheckbox
+                        id={"newsletter"}
+                        checked={value}
+                        onClick={(e) => onChange(e)}
+                        label={"Newsletter"}
+                        className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    control={control}
+                    name="blogPosts"
+                    rules={{
+                      required: false,
+                    }}
+                    defaultValue={false}
+                    render={({ field: { onChange, value } }) => (
+                      <AppCheckbox
+                        id={"blogPosts"}
+                        checked={value}
+                        onClick={(e) => onChange(e)}
+                        label={"Blog Posts"}
+                        className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    control={control}
+                    name="productUpdates"
+                    rules={{
+                      required: false,
+                    }}
+                    defaultValue={false}
+                    render={({ field: { onChange, value } }) => (
+                      <AppCheckbox
+                        id={"productUpdates"}
+                        checked={value}
+                        onClick={(e) => onChange(e)}
+                        label={"Product Updates"}
+                        className={"ms-md-5 mt-3 mt-md-0 flex-shrink-0"}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="d-flex align-items-center mt-4 mt-md-5">
+                  <Controller
+                    control={control}
+                    name="email"
+                    rules={{
+                      required: true,
+                      pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <AppInput
+                        className={`md flex-grow-1 ${
+                          errors?.email?.type === "required" ||
+                          errors?.email?.type === "pattern"
+                            ? "error"
+                            : !!watch("email") &&
+                              !errors?.email &&
+                              !getFieldState("email")?.invalid
+                            ? "success"
+                            : ""
+                        }`}
+                        type="text"
+                        onChange={onChange}
+                        value={value}
+                        placeholder={"Your Email"}
+                      />
+                    )}
+                  />
+
+                  <AppButton
+                    type={"submit"}
+                    className="md primary flex-shrink-0 ms-3"
+                  >
+                    Subscribe *
+                  </AppButton>
+                </div>
+                {errors?.email?.type === "required" && (
+                  <span className="form-status error">
+                    This field is required
+                  </span>
+                )}
+                {errors?.email?.type === "pattern" && (
+                  <span className="form-status error">
+                    Please provide a valid email
+                  </span>
+                )}
+                {!!watch("email") &&
+                  !errors?.email &&
+                  !getFieldState("email")?.invalid && (
+                    <span className="form-status success">Looks good!</span>
+                  )}
+              </form>
               <span className="text-s note mt-3">
                 * Yes, I agree to the <Link to="/terms">terms</Link> and{" "}
                 <Link to="/privacy-policy">privacy policy</Link>.
