@@ -16,6 +16,12 @@
         border: none;
         padding: 3rem 3rem 0;
 
+        @include media-breakpoint-down(md) {
+            & {
+                padding: 1.5rem 1.5rem 0;
+            }
+        }
+
         .btn-close {
             opacity: 1;
             position: absolute;
@@ -31,6 +37,13 @@
             &:focus {
                 box-shadow: none;
             }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    top: 1.5rem;
+                    right: 1.5rem;
+                }
+            }
         }
     }
 
@@ -44,10 +57,22 @@
         p {
             margin-bottom: 1.5rem;
         }
+
+        @include media-breakpoint-down(md) {
+            & {
+                padding: 1.5rem;
+            }
+        }
     }
 
     &-footer {
         padding: 0 3rem 3rem;
         border: none;
+
+        @include media-breakpoint-down(md) {
+            & {
+                padding: 0 1.5rem 1.5rem;
+            }
+        }
     }
 }

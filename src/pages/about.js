@@ -18,6 +18,7 @@ import IconAngleRight from "assets/images/icon__angle--right.svg";
 import LogoClutch from "assets/images/logo__clutch.svg";
 import GraphicsPeople from "assets/images/graphics__people.png";
 import IconCustomerSupport from "assets/images/icon__customer-support.svg";
+import IconCombinedExperience from "assets/images/icon__combined-experience.svg";
 import SampleLogo01 from "assets/images/sample__logo--01.svg";
 import SampleLogo02 from "assets/images/sample__logo--02.svg";
 import SampleLogo03 from "assets/images/sample__logo--03.svg";
@@ -25,6 +26,9 @@ import SampleLogo04 from "assets/images/sample__logo--04.svg";
 import SampleLogo05 from "assets/images/sample__logo--05.svg";
 import SampleLogo06 from "assets/images/sample__logo--06.svg";
 import { AppButton } from "../components/AppButton";
+import IconMission from "assets/images/icon__mission.svg";
+import IconVision from "assets/images/icon__vision.svg";
+import IconValues from "assets/images/icon__values.svg";
 
 const settings = {
   dots: false,
@@ -33,6 +37,23 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1100,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 export default function About() {
@@ -48,7 +69,9 @@ export default function About() {
   }, [teamCategory]);
 
   const filterTeamMembers = () => {
-    const data = OurTeam.filter((member) => member.role.includes(teamCategory));
+    const data = OurTeam.filter(
+      (member) => member?.active && member.role.includes(teamCategory)
+    );
     setTeams(data);
   };
 
@@ -63,54 +86,111 @@ export default function About() {
       <main className="site-main">
         <Section sectionClass={"section__banner"}>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-6">
               <img
                 src={GraphicsBannerSliceLrg}
                 alt=""
-                className="rounded w-100 d-block"
+                className="w-100 d-block"
               />
             </div>
-            <div className="col-md-3">
+            <div className="col-3">
               <img
                 src={GraphicsBannerSliceSmlA}
                 alt=""
-                className="rounded w-100 d-block"
+                className="w-100 d-block"
               />
             </div>
-            <div className="col-md-3">
+            <div className="col-3">
               <img
                 src={GraphicsBannerSliceSmlB}
                 alt=""
-                className="rounded w-100 d-block"
+                className="w-100 d-block"
               />
             </div>
           </div>
         </Section>
+        <Section sectionClass={"section__mission-vision-value"}>
+          <div className="row justify-content-center mb-5">
+            <div className="col-lg-8 col-xl-6 text-center">
+              <h1>Our Mission, Vision & Values</h1>
+              <p className="text-l mb-4">
+                Disaster Tech takes great pride in our mission, vision and
+                values. We use these to shape our company for the present and
+                future as we continue to grow within our current and new
+                industries.
+              </p>
+            </div>
+          </div>
+          <div className="row pt-md-5">
+            <div className="col-lg-4">
+              <div className="block">
+                <span className="icon">
+                  <img src={IconMission} alt="" />
+                </span>
+                <h2 className="mb-3 mb-md-4">Mission</h2>
+                <p className="m-0">
+                  We provide practitioner-driven, crisis management software
+                  that supports crisis managers within the DoD and Utilities
+                  verticals to make smarter decisions in preparedness and
+                  response to ultimately saves lives and protect the
+                  environment.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4 mt-5 pt-4 pt-lg-5">
+              <div className="block">
+                <span className="icon">
+                  <img src={IconVision} alt="" />
+                </span>
+                <h2 className="mb-3 mb-md-4">Vision</h2>
+                <p className="m-0">
+                  Be the trusted leader in providing decision support
+                  technologies for situational awareness, operational
+                  coordination, and planning before, during, and after a crisis.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4 mt-5 mt-lg-0 pt-4 pt-lg-0">
+              <div className="block">
+                <span className="icon">
+                  <img src={IconValues} alt="" />
+                </span>
+                <h2 className="mb-3 mb-md-4">Values</h2>
+                <ul className="m-0">
+                  <li>People first & mission oriented culture</li>
+                  <li>Practitioner Driven Innovation</li>
+                  <li>Insightful Analytics for Proactive Response</li>
+                  <li>Seamless Multi-Agency Collaboration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Section>
         <Section sectionClass={"section__staff-map"}>
-          <div className="row justify-content-center">
-            <div className="col-md-10 col-lg-8 col-xl-6">
+          <div className="row justify-content-center mb-4">
+            <div className="col-lg-8 col-xl-6">
               <h1>Our offices around the country</h1>
               <p className="text-l mb-4">
-                Congue gravida vel imperdiet rutrum lectus felis purus blandit
-                ullamcorper. In eleifend in ultrices ultrices aliquam augue
-                praesent.
+                Our incredible team of remote employees reside all around the
+                country, bringing unique experience, background, and knowledge
+                to our company.
               </p>
-              <div className="button-group justify-content-center mb-4">
-                <AppButton
-                  className="primary md"
-                  onClick={() => navigate("/contact")}
-                >
-                  Contact Us
-                </AppButton>
-              </div>
+              <AppButton
+                className="primary md"
+                onClick={() => navigate("/contact")}
+              >
+                Contact Us
+              </AppButton>
             </div>
           </div>
           <img src={GraphicsMap} alt="" className="w-100 d-block" />
         </Section>
         <Section sectionClass={"section__our-team"}>
-          <div className="d-flex align-items-center mb-4">
-            <h1 className="m-0">Our Talented Team </h1>
-            <div className="button-group ms-auto">
+          <div className="d-xl-flex align-items-center mb-md-4">
+            <h1 className="text-center text-xl-start mb-xl-0">
+              Our Talented Team{" "}
+            </h1>
+            <div className="button-group d-flex justify-content-center ms-auto">
               <AppButton
                 className={`md ${
                   teamCategory === "Team Member" ? "primary" : "secondary"
@@ -120,7 +200,7 @@ export default function About() {
                 Team Members
               </AppButton>
               <AppButton
-                className={`md ${
+                className={`md ms-3 mt-0 ${
                   teamCategory === "Senior Advisors" ? "primary" : "secondary"
                 }`}
                 onClick={() => setTeamCategory("Senior Advisors")}
@@ -128,7 +208,7 @@ export default function About() {
                 Senior Advisors
               </AppButton>
               <AppButton
-                className={`md ${
+                className={`md ms-3 mt-0 ${
                   teamCategory === "Board Member" ? "primary" : "secondary"
                 }`}
                 onClick={() => setTeamCategory("Board Member")}
@@ -141,7 +221,7 @@ export default function About() {
             <div className="row justify-content-center">
               {teams.map((member) => (
                 <div
-                  className="member col-md-3 text-center mt-4 pb-3"
+                  className="member col-6 col-md-3 text-center mt-4 pb-mb-3"
                   key={member?.id}
                 >
                   <div className="avatar">
@@ -173,9 +253,9 @@ export default function About() {
               ))}
             </div>
           ) : null}
-          <div className="button-group justify-content-center mt-5">
+          <div className="button-group d-flex justify-content-center mt-4 mt-md-5">
             <AppButton
-              className="primary md"
+              className="primary md w-auto"
               onClick={() => navigate("/contact")}
             >
               Join Our Team{" "}
@@ -189,11 +269,11 @@ export default function About() {
         </Section>
         <Section sectionClass={"section__stats lrg"}>
           <div className="row align-items-center">
-            <div className="col-md-5">
-              <h1 className="mb-4 pb-2">
+            <div className="col-lg-5 mb-4 mb-lg-0 pb-3 pb-lg-0">
+              <h1 className="mb-4 pb-md-2">
                 Software built by a team of practitioners and innovators
               </h1>
-              <p className="weight-700 mb-4 pb-4">
+              <p className="weight-700 mb-4 pb-md-4">
                 With PRATUS, you can respond to any crisis with confidence and
                 agility to achieve better outcomes for your organization and the
                 communities you serve.
@@ -205,7 +285,7 @@ export default function About() {
                 Contact Us
               </AppButton>
             </div>
-            <div className="col-md-6 ms-auto">
+            <div className="col-lg-6 ms-auto">
               <div className="row align-items-center">
                 <div className="col-md-6">
                   <div className="block pb-4">
@@ -225,38 +305,38 @@ export default function About() {
                     <img src={GraphicsPeople} alt="" style={{ width: "90%" }} />
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 mt-4 mt-md-0">
                   <div className="block">
                     <img src={IconCustomerSupport} alt="" />
                     <h1 className="mt-4 mb-0">24/7</h1>
                     <p className="text-l weight-700 m-0">Customer support</p>
                   </div>
                   <div className="block mt-4">
-                    <img src={IconCustomerSupport} alt="" />
-                    <h1 className="mt-4 mb-0">+30</h1>
-                    <p className="text-l weight-700 m-0">Years of Experience</p>
+                    <img src={IconCombinedExperience} alt="" />
+                    <h1 className="mt-4 mb-0">120+</h1>
+                    <p className="text-l weight-700 m-0">Combined Experience</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="logos row">
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2 mb-3 mb-md-5 mb-xl-0">
               <img src={SampleLogo01} alt="" />
             </div>
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2 mb-3 mb-md-5 mb-xl-0">
               <img src={SampleLogo02} alt="" />
             </div>
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2 mb-3 mb-md-5 mb-xl-0">
               <img src={SampleLogo03} alt="" />
             </div>
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2">
               <img src={SampleLogo04} alt="" />
             </div>
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2">
               <img src={SampleLogo05} alt="" />
             </div>
-            <div className="col-md-2">
+            <div className="col-4 col-xl-2">
               <img src={SampleLogo06} alt="" />
             </div>
           </div>
@@ -289,7 +369,7 @@ export default function About() {
               )) ||
                 null}
             </div>
-            <div className="col-md-9">
+            <div className="col-md-9 mt-4 mt-md-0">
               <Slider {...settings} ref={sliderRef}>
                 {(Testimonials &&
                   !!Testimonials.length &&
@@ -331,7 +411,7 @@ export default function About() {
             <span className="d-block text-xxl weight-700 mb-3">
               Ready to get started?
             </span>
-            <h1 className="mb-5">
+            <h1 className="mb-md-5">
               Launch Your Incident Command <br />
               Center with Us
             </h1>

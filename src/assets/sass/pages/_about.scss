@@ -9,7 +9,40 @@
                 [class*="col-"] {
                     &:not(:first-child, :last-child) {
                         margin-top: 4rem;
+
+                        @include media-breakpoint-down(md) {
+                            & {
+                                margin-top: 1rem;
+                                padding-left: .25rem;
+                                padding-right: .25rem;
+                            }
+                        }
                     }
+
+                    @include media-breakpoint-down(md) {
+                        &:first-child {
+                            padding-right: .25rem;
+                        }
+
+                        &:last-child {
+                            padding-left: .25rem;
+                        }
+                    }
+
+                    img {
+                        @include radius(.5rem);
+
+                        @include media-breakpoint-down(md) {
+                            @include radius(.25rem);
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding-top: 1.5rem;
+                    padding-bottom: 0;
                 }
             }
         }
@@ -17,8 +50,92 @@
 }
 
 .section {
+    &__mission-vision-value {
+        @include media-breakpoint-down(md) {
+            & {
+                padding-bottom: 0 !important;
+            }
+        }
+
+        .block {
+            background: #20222A;
+            @include radius(.5rem);
+            padding: 5rem 1.5rem 2rem;
+            position: relative;
+            min-height: 360px;
+
+            @include media-breakpoint-down(lg) {
+                & {
+                    min-height: auto;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding: 4rem 1.25rem 1.5rem;
+                }
+            }
+
+            .icon {
+                @include radius(.5rem);
+                border: 5px solid $gray-900;
+                background: linear-gradient(225deg, #D946EF 0%, #8B5CF6 100%);
+                width: 5.625rem;
+                height: 5.625rem;
+                display: flex;
+                position: absolute;
+                left: 1.5rem;
+                top: -45px;
+
+                img {
+                    margin: auto;
+                }
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    position: relative;
+                    padding-left: 1rem;
+
+                    &:before {
+                        content: "\2022";
+                        color: inherit;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        display: block;
+                    }
+                }
+            }
+
+            p,
+            ul {
+                @include font__size(18px);
+                @include line__height(28px);
+                color: rgba($color-white, .7);
+
+                @include media-breakpoint-down(md) {
+                    & {
+                        @include font__size(16px);
+                        @include line__height(26px);
+                    }
+                }
+            }
+        }
+    }
+
     &__staff-map {
         text-align: center;
+
+        @include media-breakpoint-down(md) {
+            & {
+                padding-bottom: 0 !important;
+            }
+        }
     }
 
     &__our-team {
@@ -66,9 +183,28 @@
                 }
             }
         }
+
+        .button-group {
+            .button {
+                @include media-breakpoint-down(md) {
+                    & {
+                        padding-left: .75rem;
+                        padding-right: .75rem;
+                    }
+                }
+            }
+        }
     }
 
     &__testimonials {
+        @include media-breakpoint-down(md) {
+            & {
+                br {
+                    display: none;
+                }
+            }
+        }
+
         .block {
             padding: 1.375rem .75rem 0;
 
@@ -116,6 +252,13 @@
             align-items: center;
             margin-top: 5rem;
 
+            @include media-breakpoint-down(md) {
+                & {
+                    justify-content: center;
+                    margin-top: 1.5rem;
+                }
+            }
+
             .button {
                 &:not(:first-child) {
                     margin-left: 1rem;
@@ -146,6 +289,22 @@
         .inner {
             background: rgba($color-white, .04);
             padding: 5rem;
+
+            @include media-breakpoint-down(lg) {
+                & {
+                    padding: 3rem;
+
+                    br {
+                        display: none;
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding: 2rem 1rem;
+                }
+            }
         }
     }
 
@@ -162,6 +321,12 @@
         .logos {
             padding-top: 5rem;
             align-items: center;
+
+            @include media-breakpoint-down(md) {
+                & {
+                    padding-top: 3rem;
+                }
+            }
 
             [class*="col-"] {
                 text-align: center;

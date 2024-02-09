@@ -30,7 +30,12 @@ export default function Home() {
               className="w-100 d-block mb-4 mb-md-0"
               alt=""
             />
-            <AppButton className="primary md">Know More</AppButton>
+            <AppButton
+              className="primary md"
+              onClick={() => navigate("/about")}
+            >
+              Learn More
+            </AppButton>
           </Section>
           <Section sectionClass={""}>
             <div className="row align-items-center">
@@ -90,9 +95,12 @@ export default function Home() {
                 </div>
                 <div className="col-md-6 ms-auto mt-4 mt-md-0">
                   <ul className="list checked">
-                    <li>Purus vestibulum pharetra amet tincidunt pretium</li>
-                    <li>Haretra justo magna pharetra dui gravida sed nec</li>
-                    <li>Venenatis risus faucibus volutpat amet feugiat a</li>
+                    <li>Cloud-Based Software.</li>
+                    <li>Microsoft Teams Integration.</li>
+                    <li>
+                      Incident Management and Exercise Management Workspace for
+                      your convenience.
+                    </li>
                   </ul>
                 </div>
               </div>
