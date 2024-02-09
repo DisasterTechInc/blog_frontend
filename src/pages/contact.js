@@ -10,8 +10,52 @@ import { AppButton } from "../components/AppButton";
 import IconLocation from "assets/images/icon__location.svg";
 import IconCall from "assets/images/icon__call.svg";
 import { Socials } from "../components/Socials";
+import { useForm, Controller } from "react-hook-form";
+import axios from "axios";
 
-export default function About() {
+export default function Contact() {
+  const {
+    handleSubmit,
+    control,
+    getFieldState,
+    watch,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
+
+  const onSubmit = async (data) => {
+    console.log("form data", data);
+
+    let filteredData = JSON.stringify({
+      properties: {
+        email: data?.email,
+        firstname: data?.firstname,
+        lastname: data?.lastname,
+        phone: data?.phone,
+        company: data?.company,
+      },
+    });
+
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: process.env.GATSBY_HUBSPOT_API_KEY,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.GATSBY_HUBSPOT_ACCESS_TOKEN}`,
+      },
+      data: filteredData,
+    };
+
+    await axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Layout name="contact">
       <Breadcrumb>
@@ -106,60 +150,262 @@ export default function About() {
             <div className="col-xl-6 position-relative">
               <div className="form">
                 <h2>Connect with Us</h2>
-                <div className="row">
-                  <div className="col-md-12 mb-4">
-                    <label htmlFor="" className="form-label">
-                      Email
-                    </label>
-                    <AppInput type="email" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="row">
+                    <div className="col-md-12 mb-4">
+                      <label htmlFor="" className="form-label">
+                        Email
+                      </label>
+                      <Controller
+                        control={control}
+                        name="email"
+                        rules={{
+                          required: true,
+                          pattern:
+                            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={
+                              errors?.email?.type === "required" ||
+                              errors?.email?.type === "pattern"
+                                ? "error"
+                                : !!watch("email") &&
+                                  !errors?.email &&
+                                  !getFieldState("email")?.invalid
+                                ? "success"
+                                : ""
+                            }
+                            type="text"
+                            onChange={onChange}
+                            value={value}
+                          />
+                        )}
+                      />
+                      {errors?.email?.type === "required" && (
+                        <span className="form-status error">
+                          This field is required
+                        </span>
+                      )}
+                      {errors?.email?.type === "pattern" && (
+                        <span className="form-status error">
+                          Please provide a valid email
+                        </span>
+                      )}
+                      {!!watch("email") &&
+                        !errors?.email &&
+                        !getFieldState("email")?.invalid && (
+                          <span className="form-status success">
+                            Looks good!
+                          </span>
+                        )}
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <label htmlFor="" className="form-label">
+                        First Name
+                      </label>
+                      <Controller
+                        control={control}
+                        name="firstname"
+                        rules={{
+                          required: true,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={
+                              errors?.firstname?.type === "required"
+                                ? "error"
+                                : !!watch("firstname") &&
+                                  !errors?.firstname &&
+                                  !getFieldState("firstname")?.invalid
+                                ? "success"
+                                : ""
+                            }
+                            type="text"
+                            onChange={onChange}
+                            value={value}
+                          />
+                        )}
+                      />
+                      {errors?.firstname?.type === "required" && (
+                        <span className="form-status error">
+                          This field is required
+                        </span>
+                      )}
+                      {!!watch("firstname") &&
+                        !errors?.firstname &&
+                        !getFieldState("firstname")?.invalid && (
+                          <span className="form-status success">
+                            Looks good!
+                          </span>
+                        )}
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <label htmlFor="" className="form-label">
+                        Last Name
+                      </label>
+                      <Controller
+                        control={control}
+                        name="lastname"
+                        rules={{
+                          required: true,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={
+                              errors?.lastname?.type === "required"
+                                ? "error"
+                                : !!watch("lastname") &&
+                                  !errors?.lastname &&
+                                  !getFieldState("lastname")?.invalid
+                                ? "success"
+                                : ""
+                            }
+                            type="text"
+                            onChange={onChange}
+                            value={value}
+                          />
+                        )}
+                      />
+                      {errors?.lastname?.type === "required" && (
+                        <span className="form-status error">
+                          This field is required
+                        </span>
+                      )}
+                      {!!watch("lastname") &&
+                        !errors?.lastname &&
+                        !getFieldState("lastname")?.invalid && (
+                          <span className="form-status success">
+                            Looks good!
+                          </span>
+                        )}
+                    </div>
+                    <div className="col-md-12 mb-4">
+                      <label htmlFor="" className="form-label">
+                        Company Name
+                      </label>
+                      <Controller
+                        control={control}
+                        name="company"
+                        rules={{
+                          required: true,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={
+                              errors?.company?.type === "required"
+                                ? "error"
+                                : !!watch("company") &&
+                                  !errors?.company &&
+                                  !getFieldState("company")?.invalid
+                                ? "success"
+                                : ""
+                            }
+                            type="text"
+                            onChange={onChange}
+                            value={value}
+                          />
+                        )}
+                      />
+                      {errors?.company?.type === "required" && (
+                        <span className="form-status error">
+                          This field is required
+                        </span>
+                      )}
+                      {!!watch("company") &&
+                        !errors?.company &&
+                        !getFieldState("company")?.invalid && (
+                          <span className="form-status success">
+                            Looks good!
+                          </span>
+                        )}
+                    </div>
+                    <div className="col-md-12 mb-4">
+                      <label htmlFor="" className="form-label">
+                        Phone Number
+                      </label>
+                      <Controller
+                        control={control}
+                        name="phone"
+                        rules={{
+                          required: true,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={
+                              errors?.phone?.type === "required"
+                                ? "error"
+                                : !!watch("phone") &&
+                                  !errors?.phone &&
+                                  !getFieldState("phone")?.invalid
+                                ? "success"
+                                : ""
+                            }
+                            type="number"
+                            onChange={onChange}
+                            value={value}
+                          />
+                        )}
+                      />
+                      {errors?.phone?.type === "required" && (
+                        <span className="form-status error">
+                          This field is required
+                        </span>
+                      )}
+                      {!!watch("phone") &&
+                        !errors?.phone &&
+                        !getFieldState("phone")?.invalid && (
+                          <span className="form-status success">
+                            Looks good!
+                          </span>
+                        )}
+                    </div>
+                    <div className="col-md-12 mb-4">
+                      <Controller
+                        control={control}
+                        name="receive_communication"
+                        rules={{
+                          required: false,
+                        }}
+                        defaultValue={false}
+                        render={({ field: { onChange, value } }) => (
+                          <AppCheckbox
+                            id={"receive_communication"}
+                            checked={value}
+                            onClick={(e) => onChange(e)}
+                            label={
+                              "I agree to receive other communications from Disaster Tech."
+                            }
+                          />
+                        )}
+                      />
+                      <Controller
+                        control={control}
+                        name="allow_access_personal_data"
+                        rules={{
+                          required: false,
+                        }}
+                        defaultValue={true}
+                        render={({ field: { onChange, value } }) => (
+                          <AppCheckbox
+                            id={"allow_access_personal_data"}
+                            checked={value}
+                            onClick={(e) => onChange(e)}
+                            className={"mt-3"}
+                            label={
+                              "I agree to allow Disaster Technologies Incorporated to store and process my personal data."
+                            }
+                          />
+                        )}
+                      />
+                    </div>
+                    <div className="button-group">
+                      <AppButton type={"submit"} className={"primary shadow"}>
+                        Submit
+                      </AppButton>
+                    </div>
                   </div>
-                  <div className="col-md-6 mb-4">
-                    <label htmlFor="" className="form-label">
-                      First Name
-                    </label>
-                    <AppInput />
-                  </div>
-                  <div className="col-md-6 mb-4">
-                    <label htmlFor="" className="form-label">
-                      Last Name
-                    </label>
-                    <AppInput />
-                  </div>
-                  <div className="col-md-12 mb-4">
-                    <label htmlFor="" className="form-label">
-                      Company Name
-                    </label>
-                    <AppInput />
-                  </div>
-                  <div className="col-md-12 mb-4">
-                    <label htmlFor="" className="form-label">
-                      Phone Number
-                    </label>
-                    <AppInput type="number" />
-                  </div>
-                  <div className="col-md-12 mb-4">
-                    <AppCheckbox
-                      id={"receive_communication"}
-                      checked={false}
-                      label={
-                        "I agree to receive other communications from Disaster Tech."
-                      }
-                    />
-                    <AppCheckbox
-                      id={"allow_access_personal_data"}
-                      className={"mt-3"}
-                      checked={true}
-                      label={
-                        "I agree to allow Disaster Technologies Incorporated to store and process my personal data."
-                      }
-                    />
-                  </div>
-                  <div className="button-group">
-                    <AppButton type={"submit"} className={"primary shadow"}>
-                      Submit
-                    </AppButton>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -169,9 +415,9 @@ export default function About() {
             <div className="col-md-6">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3109.1839156057563!2d-77.040033!3d38.805339!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b0f66ddc4f93%3A0x725d4619199ba90e!2s200%20N%20Union%20St%2C%20Alexandria%2C%20VA%2022314!5e0!3m2!1sen!2sus!4v1706693192690!5m2!1sen!2sus"
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
             <div className="col-md-6 col-xl-5 ms-auto">

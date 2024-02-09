@@ -1,6 +1,7 @@
 import * as React from "react";
 import Graphics from "assets/images/graphics__banner.png";
 import { AppButton } from "./AppButton";
+import { navigate } from "gatsby";
 
 export default function Banner() {
   return (
@@ -19,7 +20,12 @@ export default function Banner() {
                 PRATUS, our platform, to predict, prepare, and decide for any
                 crisis.
               </p>
-              <AppButton className="primary">Schedule a Demo</AppButton>
+              <AppButton
+                className="primary"
+                onClick={() => navigate("/contact")}
+              >
+                Schedule a Demo
+              </AppButton>
             </div>
             <div className="col-lg-7">
               <img src={Graphics} alt="" className="w-100 d-block" />
