@@ -84,7 +84,6 @@ export default function Home() {
                 Learn More
               </AppButton>
             </div>
-            {/* <img src={GraphicsVideo} className="w-100 d-block" alt="" /> */}
           </Section>
           <Section sectionClass={"section__start-trial pb-0"}>
             <div className="inner">
