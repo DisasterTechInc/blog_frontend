@@ -15,9 +15,22 @@ import SampleLogo05 from "assets/images/sample__logo--05.svg";
 import SampleLogo06 from "assets/images/sample__logo--06.svg";
 import { AppInput } from "../components/AppInput";
 import { navigate } from "gatsby";
+import { useForm, Controller } from "react-hook-form";
 
 export default function Pricing() {
+  const {
+    handleSubmit,
+    control,
+    getFieldState,
+    watch,
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
+
   const [pricingYearly, setPricingYearly] = useState(false);
+
+  const onSubmit = async (data) => {
+    console.log("form data", data);
+  };
   return (
     <Layout name="pricing">
       <Breadcrumb>
@@ -376,17 +389,65 @@ export default function Pricing() {
             </p>
             <div className="row justify-content-center">
               <div className="col-lg-8 col-xl-7">
-                <div className="d-md-flex align-items-center">
-                  <AppInput
-                    type="email"
-                    className="md"
-                    placeholder="Your Email"
-                    readOnly
-                  />
-                  <AppButton type="submit" className="md primary">
-                    Get started for free
-                  </AppButton>
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="d-md-flex align-items-start">
+                    <div className="flex-grow-1 mb-4 mb-md-0">
+                      <Controller
+                        control={control}
+                        name="email"
+                        rules={{
+                          required: true,
+                          pattern:
+                            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                        }}
+                        render={({ field: { onChange, value } }) => (
+                          <AppInput
+                            className={`md ${
+                              errors?.email?.type === "required" ||
+                              errors?.email?.type === "pattern"
+                                ? "error"
+                                : !!watch("email") &&
+                                  !errors?.email &&
+                                  !getFieldState("email")?.invalid
+                                ? "success"
+                                : ""
+                            }`}
+                            type="text"
+                            onChange={onChange}
+                            value={value}
+                            placeholder={"Your Email"}
+                          />
+                        )}
+                      />
+                      {errors?.email?.type === "required" && (
+                        <div className="text-center text-md-start">
+                          <span className="form-status error">
+                            This field is required
+                          </span>
+                        </div>
+                      )}
+                      {errors?.email?.type === "pattern" && (
+                        <div className="text-center text-md-start">
+                          <span className="form-status error">
+                            Please provide a valid email
+                          </span>
+                        </div>
+                      )}
+                      {!!watch("email") &&
+                        !errors?.email &&
+                        !getFieldState("email")?.invalid && (
+                          <div className="text-center text-md-start">
+                            <span className="form-status success">
+                              Looks good!
+                            </span>
+                          </div>
+                        )}
+                    </div>
+                    <AppButton type="submit" className="md primary">
+                      Get started for free
+                    </AppButton>
+                  </div>
+                </form>
               </div>
             </div>
             <p className="text-s m-0 mt-3">
