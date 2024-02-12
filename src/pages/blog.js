@@ -11,6 +11,7 @@ import { AppCheckbox } from "../components/AppCheckbox";
 import { AppSelect } from "../components/AppSelect";
 import { AppButton } from "../components/AppButton";
 import { AppInput } from "../components/AppInput";
+import BlogPlaceholder from "assets/images/graphics__no-blog.svg";
 import { useForm, Controller } from "react-hook-form";
 
 export default function Blog({ data }) {
@@ -459,7 +460,13 @@ export default function Blog({ data }) {
               </div>
             </>
           ) : (
-            <p className="mb-5 pb-3">No Post Found</p>
+            <div className="d-flex flex-column align-items-center py-5 text-center">
+              <img className="img-fluid mb-4" src={BlogPlaceholder} alt="" />
+              <h2 className="mb-3">No blog Found!</h2>
+              <p className="m-0 text-xl">
+                The blog you are looking for is not available.
+              </p>
+            </div>
           )}
           {(currentPosts && !!currentPosts?.length && (
             <Pagination

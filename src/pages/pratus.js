@@ -8,6 +8,7 @@ import { AppButton } from "../components/AppButton";
 import GraphicsIMW from "assets/images/graphics__services__imw.jpg";
 import GraphicsEMW from "assets/images/graphics__services__emw.jpg";
 import GraphicsDefense from "assets/images/graphics__services__defense.jpg";
+import GraphicsEnergySector from "assets/images/graphics__services__energy-sector.jpg";
 import { navigate } from "gatsby";
 import IconDefense from "assets/images/icon__defense.svg";
 import IconEnergy from "assets/images/icon__energy-sector.svg";
@@ -227,7 +228,13 @@ export default function Pratus() {
                       ready and able to save lives, money, and time.
                     </p>
                   </div>
-                  <div className="col-xl-6 ps-xl-5"></div>
+                  <div className="col-xl-6 ps-xl-5">
+                    <img
+                      className="w-100 d-block rounded overflow-hidden"
+                      src={GraphicsEnergySector}
+                      alt=""
+                    />
+                  </div>
                 </div>
               </>
             )) ||
